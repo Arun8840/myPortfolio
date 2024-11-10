@@ -22,7 +22,7 @@ const conentFont = Outfit({
 
 gsap.registerPlugin(useGSAP)
 function About() {
-  let banner: any = bannerImage?.src
+  const banner: any = bannerImage?.src
   const headerStyle = `text-white text-[2rem] p-2 tracking-wider font-semibold ${HeaderFont?.className}`
 
   const contentStyle = `text-white leading-6 tracking-wide text-stone-200 ${conentFont?.className}`
