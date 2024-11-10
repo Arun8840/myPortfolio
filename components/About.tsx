@@ -23,11 +23,11 @@ const conentFont = Outfit({
 gsap.registerPlugin(useGSAP)
 function About() {
   let banner: any = bannerImage?.src
-  let headerStyle = `text-white text-[2rem] p-2 tracking-wider font-semibold ${HeaderFont?.className}`
+  const headerStyle = `text-white text-[2rem] p-2 tracking-wider font-semibold ${HeaderFont?.className}`
 
-  let contentStyle = `text-white leading-6 tracking-wide text-stone-200 ${conentFont?.className}`
-  let listContainer: any = useRef(null)
-  let tl = gsap.timeline()
+  const contentStyle = `text-white leading-6 tracking-wide text-stone-200 ${conentFont?.className}`
+  const listContainer: any = useRef(null)
+  const tl = gsap.timeline()
   useGSAP(() => {
     tl.fromTo(
       listContainer?.current?.children,
