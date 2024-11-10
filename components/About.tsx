@@ -46,7 +46,7 @@ function About() {
     )
   })
   return (
-    <section className="min-h-screen bg-black p-10 lg:overflow-hidden grid place-items-center">
+    <section className="min-h-screen bg-black lg:p-10 lg:overflow-hidden grid place-items-center">
       <div className="container p-2 mx-auto">
         <ul ref={listContainer} className="p-3 flex flex-col gap-2 ">
           <li>
