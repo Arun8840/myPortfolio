@@ -23,9 +23,9 @@ const conentFont = Outfit({
 gsap.registerPlugin(useGSAP)
 function About() {
   const banner = bannerImage?.src
-  const headerStyle = `text-white text-[2rem] p-2 tracking-wider font-semibold ${HeaderFont?.className}`
+  const headerStyle = `text-[2rem] p-3 tracking-wider font-semibold ${HeaderFont?.className}`
 
-  const contentStyle = `text-white leading-6 tracking-wide text-stone-200 ${conentFont?.className}`
+  const contentStyle = `leading-6 tracking-wide ${conentFont?.className}`
   const listContainer = useRef<HTMLUListElement>(null)
   const tl = gsap.timeline()
   useGSAP(() => {
@@ -48,40 +48,83 @@ function About() {
   return (
     <section className="min-h-screen bg-black lg:p-10 lg:overflow-hidden grid place-items-center">
       <div className="container p-2 mx-auto">
-        <ul ref={listContainer} className="p-3 flex flex-col gap-2 ">
-          <li>
-            <h1 className={headerStyle}>About Me</h1>
-            <Image
-              className="p-2"
-              src={banner}
-              alt="bannerImage"
-              width={200}
-              height={200}
-            />
+        <ul
+          ref={listContainer}
+          className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          <li className="col-span-full bg-transparent backdrop-blur-sm rounded-xl">
+            <h1 className={`${headerStyle} text-white`}>About Me</h1>
+            <div className="grid grid-cols-12 gap-4">
+              <div className="col-span-2 bg-[#edc88c0d] rounded-lg p-3 pb-0">
+                <Image
+                  className="rounded-lg"
+                  src={banner}
+                  alt="bannerImage"
+                  width={300}
+                  height={300}
+                />
+              </div>
+              <div className="col-span-10 bg-[#edc88c0d] rounded-lg p-5">
+                <p className={`${contentStyle} text-white`}>
+                  Hello!
+                  <span className="bg-green-500 p-1 rounded -skew-y-3 text-xl font-medium inline-block">
+                    I&rsquo;m Arun
+                  </span>
+                  , a frontend developer with
+                  <span className="text-pink-500 font-medium">3 years</span> of
+                  professional experience at
+                  <Link
+                    href={"http://www.zettastack.com/"}
+                    className="text-indigo-400 p-1 hover:border-b border-indigo-400"
+                  >
+                    Zetta Stack Systems Pvt
+                  </Link>
+                  . Ltd. I&rsquo;m passionate about creating responsive,
+                  interactive, and user-friendly web applications.
+                </p>
+              </div>
+            </div>
           </li>
-          <li className="">
-            <div className="p-3">
-              <p className={contentStyle}>
-                Hello!
-                <span className="bg-green-500 p-1 rounded -skew-y-3 text-xl font-medium inline-block">
-                  I&rsquo;m Arun
-                </span>
-                , a frontend developer with{" "}
-                <span className="text-pink-500 font-medium">3 years</span> of
-                professional experience at
-                <Link
-                  href={"http://www.zettastack.com/"}
-                  className="text-indigo-400 p-1 hover:border-b border-indigo-400"
-                >
-                  Zetta Stack Systems Pvt
-                </Link>
-                . Ltd. I&rsquo;m passionate about creating responsive,
-                interactive, and user-friendly web applications. During my time
-                at Zetta Stack Systems, I honed my skills in modern frontend
-                technologies like React, Next.js, Tailwind CSS, and Figma.
-              </p>
 
-              <p className={contentStyle}>
+          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4 md:col-span-2">
+            <h1 className={`${headerStyle} text-white`}>Skills & Expertise</h1>
+            <div className="p-3">
+              <ul className=" grid grid-cols-1 md:grid-cols-2 gap-3 text-white">
+                <li className=" p-3 rounded-lg">
+                  <strong>Languages:</strong>
+                  <span className="text-orange-400">HTML</span>,
+                  <span className="text-sky-400">CSS</span>,
+                  <span className="text-yellow-400">JavaScript (ES6+)</span>,
+                  TypeScript
+                </li>
+                <li className=" p-3 rounded-lg">
+                  <strong>Frameworks & Libraries:</strong>
+                  <span className="text-sky-400">React</span>, Next.js,
+                  <span className="text-green-400 font-medium"> GSAP</span>
+                  (GreenSock Animation Platform)
+                </li>
+                <li className=" p-3 rounded-lg">
+                  <strong>Design & Tools:</strong> Figma, Spline (3D design),
+                  Tailwind CSS
+                </li>
+                <li className=" p-3 rounded-lg">
+                  <strong>API Integration:</strong> RESTful APIs
+                </li>
+                <li className=" p-3 rounded-lg">
+                  <strong>Responsive Design:</strong> Mobile-first approach,
+                  Flexbox, CSS Grid
+                </li>
+                <li className=" p-3 rounded-lg">
+                  <strong>Version Control:</strong> Git, GitHub
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4">
+            <h1 className={`${headerStyle} text-white`}>My Journey</h1>
+            <div className="p-3">
+              <p className={`${contentStyle} text-white`}>
                 Throughout my journey, I&rsquo;ve mastered key frontend tools
                 like React, Next.js, Tailwind CSS, and Figma to build intuitive
                 interfaces. I&rsquo;m also proficient in Spline for 3D design
@@ -91,65 +134,28 @@ function About() {
             </div>
           </li>
 
-          <li className="">
-            <h1 className={headerStyle}>Skills & Expertise</h1>
+          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4">
+            <h1 className={`${headerStyle} text-white`}>My Approach</h1>
             <div className="p-3">
-              <ul className="text-stone-200 flex flex-col gap-3">
-                <li>
-                  <strong>Languages:</strong>{" "}
-                  <span className="text-orange-400">HTML</span>,{" "}
-                  <span className="text-sky-400">CSS</span>,{" "}
-                  <span className="text-yellow-400">JavaScript (ES6+)</span>,
-                  TypeScript
-                </li>
-                <li>
-                  <strong>Frameworks & Libraries:</strong>{" "}
-                  <span className="text-sky-400">React</span>, Next.js,
-                  <span className="text-green-400 font-medium"> GSAP</span>
-                  (GreenSock Animation Platform)
-                </li>
-                <li>
-                  <strong>Design & Tools:</strong> Figma, Spline (3D design),
-                  Tailwind CSS
-                </li>
-                <li>
-                  <strong>API Integration:</strong> RESTful APIs
-                </li>
-                <li>
-                  <strong>Responsive Design:</strong> Mobile-first approach,
-                  Flexbox, CSS Grid
-                </li>
-                <li>
-                  <strong>Version Control:</strong> Git, GitHub
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <li className="">
-            <h1 className={headerStyle}>My Approach</h1>
-            <div className="p-3">
-              <p className={contentStyle}>
+              <p className={`${contentStyle} text-white`}>
                 I believe in crafting clean, maintainable code that blends
                 functionality with beautiful design. With a strong focus on
                 collaboration, I enjoy working with designers and developers
-                alike to create seamless user experiences. My expertise in using
-                design systems, animation tools, and frameworks like Next.js
-                enables me to deliver performance-optimized, dynamic web
-                applications.
+                alike to create seamless user experiences.
               </p>
             </div>
           </li>
-          <li className="">
-            <h1 className={headerStyle}>When I&rsquo;m Not Coding</h1>
+
+          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4">
+            <h1 className={`${headerStyle} text-white`}>
+              When I&rsquo;m Not Coding
+            </h1>
             <div className="p-3">
-              <p className={contentStyle}>
+              <p className={`${contentStyle} text-white`}>
                 Outside of coding, I enjoy exploring new web development trends
                 and experimenting with innovative tools and techniques.
                 I&rsquo;m also passionate about art, which fuels my creativity
-                and inspires my design work. In my free time, you&rsquo;ll often
-                find me playing volleyball or working on personal art projects
-                to stay balanced and inspired.
+                and inspires my design work.
               </p>
             </div>
           </li>
