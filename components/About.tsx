@@ -2,30 +2,17 @@
 
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
-import { Outfit } from "next/font/google"
 import Link from "next/link"
 import React, { useRef } from "react"
 import bannerImage from "../assets/aboutMe_banner.png"
 import Image from "next/image"
-const HeaderFont = Outfit({
-  weight: "600",
-  style: "normal",
-  subsets: ["latin"],
-  display: "block",
-})
-const conentFont = Outfit({
-  weight: "300",
-  style: "normal",
-  subsets: ["latin"],
-  display: "block",
-})
 
 gsap.registerPlugin(useGSAP)
 function About() {
   const banner = bannerImage?.src
-  const headerStyle = `text-[2rem] p-3 tracking-wider font-semibold ${HeaderFont?.className}`
+  const headerStyle = `text-[2rem] text-[#dbf8f5] p-3 tracking-wider font-semibold font-outfit_bold`
 
-  const contentStyle = `leading-6 tracking-wide ${conentFont?.className}`
+  const contentStyle = `leading-6 tracking-wide font-outfit_normal text-[#dbf8f5]`
   const listContainer = useRef<HTMLUListElement>(null)
   const tl = gsap.timeline()
   useGSAP(() => {
@@ -46,16 +33,16 @@ function About() {
     )
   })
   return (
-    <section className="min-h-screen bg-black lg:p-10 lg:overflow-hidden grid place-items-center">
+    <section className="min-h-screen bg-[#020909] lg:p-10 lg:overflow-hidden grid place-items-center">
       <div className="container p-2 mx-auto">
         <ul
           ref={listContainer}
           className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-          <li className="col-span-full bg-transparent backdrop-blur-sm rounded-xl">
-            <h1 className={`${headerStyle} text-white`}>About Me</h1>
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-2 bg-[#edc88c0d] rounded-lg p-3 pb-0">
+          <li className="col-span-full bg-[#081414] backdrop-blur-sm rounded-xl">
+            <h1 className={`${headerStyle}`}>About Me</h1>
+            <div className="flex flex-wrap gap-4">
+              <div className="p-3 pb-0">
                 <Image
                   className="rounded-lg"
                   src={banner}
@@ -64,8 +51,8 @@ function About() {
                   height={300}
                 />
               </div>
-              <div className="col-span-10 bg-[#edc88c0d] rounded-lg p-5">
-                <p className={`${contentStyle} text-white`}>
+              <div className="flex-1 p-5">
+                <p className={`${contentStyle}`}>
                   Hello!
                   <span className="bg-green-500 p-1 rounded -skew-y-3 text-xl font-medium inline-block">
                     I&rsquo;m Arun
@@ -86,10 +73,10 @@ function About() {
             </div>
           </li>
 
-          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4 md:col-span-2">
-            <h1 className={`${headerStyle} text-white`}>Skills & Expertise</h1>
+          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4 md:col-span-2">
+            <h1 className={`${headerStyle}`}>Skills & Expertise</h1>
             <div className="p-3">
-              <ul className=" grid grid-cols-1 md:grid-cols-2 gap-3 text-white">
+              <ul className=" grid grid-cols-1 md:grid-cols-2 gap-3 text-[#dbf8f5]">
                 <li className=" p-3 rounded-lg">
                   <strong>Languages:</strong>
                   <span className="text-orange-400">HTML</span>,
@@ -121,10 +108,10 @@ function About() {
             </div>
           </li>
 
-          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4">
-            <h1 className={`${headerStyle} text-white`}>My Journey</h1>
+          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4">
+            <h1 className={`${headerStyle}`}>My Journey</h1>
             <div className="p-3">
-              <p className={`${contentStyle} text-white`}>
+              <p className={`${contentStyle}`}>
                 Throughout my journey, I&rsquo;ve mastered key frontend tools
                 like React, Next.js, Tailwind CSS, and Figma to build intuitive
                 interfaces. I&rsquo;m also proficient in Spline for 3D design
@@ -134,10 +121,10 @@ function About() {
             </div>
           </li>
 
-          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4">
-            <h1 className={`${headerStyle} text-white`}>My Approach</h1>
+          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4">
+            <h1 className={`${headerStyle}`}>My Approach</h1>
             <div className="p-3">
-              <p className={`${contentStyle} text-white`}>
+              <p className={`${contentStyle}`}>
                 I believe in crafting clean, maintainable code that blends
                 functionality with beautiful design. With a strong focus on
                 collaboration, I enjoy working with designers and developers
@@ -146,12 +133,10 @@ function About() {
             </div>
           </li>
 
-          <li className="bg-[#edc88c0d] backdrop-blur-sm rounded-xl p-4">
-            <h1 className={`${headerStyle} text-white`}>
-              When I&rsquo;m Not Coding
-            </h1>
+          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4">
+            <h1 className={`${headerStyle}`}>When I&rsquo;m Not Coding</h1>
             <div className="p-3">
-              <p className={`${contentStyle} text-white`}>
+              <p className={`${contentStyle}`}>
                 Outside of coding, I enjoy exploring new web development trends
                 and experimenting with innovative tools and techniques.
                 I&rsquo;m also passionate about art, which fuels my creativity
