@@ -15,6 +15,7 @@ export default {
       fontFamily: {
         outfit_normal: "var(--font-outfit-normal)",
         outfit_bold: "var(--font-outfit-bold)",
+        poppins_normal: "var(--font-poppins-normal)",
       },
     },
   },

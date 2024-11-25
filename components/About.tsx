@@ -39,8 +39,12 @@ function About() {
           ref={listContainer}
           className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-          <li className="col-span-full bg-[#081414] backdrop-blur-sm rounded-xl">
-            <h1 className={`${headerStyle}`}>About Me</h1>
+          <li className="col-span-full bg-[#081414] backdrop-blur-sm rounded-xl relative overflow-clip">
+            <h1
+              className={`text-white font-outfit_bold font-extrabold bg-gradient-to-r from-blue-700 to-fuchsia-500 absolute -left-10 top-5 uppercase  w-[150px] text-center -rotate-45`}
+            >
+              About
+            </h1>
             <div className="flex flex-wrap gap-4">
               <div className="p-3 pb-0">
                 <Image
