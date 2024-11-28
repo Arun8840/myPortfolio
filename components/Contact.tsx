@@ -2,7 +2,7 @@ import { Instagram, Linkedin, Mail, MoveUpRight, Phone } from "lucide-react"
 import React from "react"
 function Contact() {
   return (
-    <section className="min-h-screen bg-[#020909] grid place-items-center">
+    <section className="min-h-screen  grid place-items-center">
       <div className="container flex justify-center flex-wrap">
         <div className=" p-2  flex-col justify-between flex">
           <h1 className="text-[#dbf8f5] text-4xl font-semibold font-outfit_bold pb-5">
