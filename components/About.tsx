@@ -33,7 +33,7 @@ function About() {
     )
   })
   return (
-    <section className="min-h-screen bg-[#020909] lg:p-10 lg:overflow-hidden grid place-items-center">
+    <section className="min-h-screen  lg:p-10 lg:overflow-hidden grid place-items-center">
       <div className="container p-2 mx-auto">
         <ul
           ref={listContainer}

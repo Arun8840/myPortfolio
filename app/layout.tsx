@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit_normal?.variable} ${outfit_bold?.variable} ${poppins_normal?.variable} antialiased`}
+        className={`${outfit_normal?.variable} ${outfit_bold?.variable} ${poppins_normal?.variable} antialiased bg-black`}
       >
         {children}
       </body>

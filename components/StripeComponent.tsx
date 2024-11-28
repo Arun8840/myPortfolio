@@ -15,7 +15,7 @@ function StripeComponent() {
   ]
 
   return (
-    <section className="bg-[#020909] py-10 overflow-hidden">
+    <section className=" py-10 overflow-hidden">
       <ul className="flex items-center justify-between bg-gradient-to-r from-lime-500 via-blue-700 to-fuchsia-500 -rotate-3 text-white  py-2 px-6 text-sm tracking-wide">
         {listItems?.map((values: string, valueIndex: number) => {
           return (
