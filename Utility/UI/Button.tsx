@@ -33,7 +33,7 @@ function Button({
 
   const varient_value = buttonTheme[varient ?? "default"]
 
-  const baseClass = `flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white px-4 py-2 rounded-full hover:scale-95 transition-all duration-150`
+  const baseClass = `flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white p-3 rounded-full transition-all duration-150`
   return (
     <button
       {...otherProps}
