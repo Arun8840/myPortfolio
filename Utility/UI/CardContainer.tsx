@@ -7,7 +7,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 function CardContainer({ children, className, ...otherProps }: CardProps) {
-  const baseClass = `bg-stone-950 p-3 rounded-3xl`
+  const baseClass = `bg-[#090707] p-3 rounded-3xl`
   return (
     <div className={cn(baseClass, className)} {...otherProps}>
       {children}

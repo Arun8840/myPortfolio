@@ -20,7 +20,7 @@ function StripeComponent() {
     <section className=" py-10 overflow-hidden">
       <ul
         style={{ "--varient": theme_value } as CSSProperties}
-        className="flex items-center justify-between bg-[var(--varient)] text-white  py-2 px-6"
+        className="flex items-center justify-between bg-[var(--varient)] text-white  py-2 px-6  relative before:absolute before:w-1/6 before:h-full before:bg-gradient-to-r before:from-black before:to-transparent after:absolute after:w-1/6 after:h-full after:bg-gradient-to-l after:from-black after:to-transparent before:left-0 after:right-0"
       >
         {listItems?.map((values: string, valueIndex: number) => {
           return (
