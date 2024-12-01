@@ -1,5 +1,6 @@
 "use client"
-import React from "react"
+import React, { CSSProperties } from "react"
+import theme from "../Utility/theme.json"
 function StripeComponent() {
   const listItems = [
     "html",
@@ -14,9 +15,13 @@ function StripeComponent() {
     "gsap",
   ]
 
+  const theme_value = theme?.primary
   return (
     <section className=" py-10 overflow-hidden">
-      <ul className="flex items-center justify-between bg-gradient-to-r from-lime-500 via-blue-700 to-fuchsia-500 -rotate-3 text-white  py-2 px-6 text-sm tracking-wide">
+      <ul
+        style={{ "--varient": theme_value } as CSSProperties}
+        className="flex items-center justify-between bg-[var(--varient)] text-white  py-2 px-6"
+      >
         {listItems?.map((values: string, valueIndex: number) => {
           return (
             <li
@@ -24,7 +29,7 @@ function StripeComponent() {
               className="flex items-center gap-3"
             >
               <svg
-                className="size-6"
+                className="size-5"
                 viewBox="0 0 200 200"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,27 +37,11 @@ function StripeComponent() {
                 <g clipPath="url(#clip0_116_153)">
                   <path
                     d="M100 0C103.395 53.7596 146.24 96.6052 200 100C146.24 103.395 103.395 146.24 100 200C96.6052 146.24 53.7596 103.395 0 100C53.7596 96.6052 96.6052 53.7596 100 0Z"
-                    fill="url(#paint0_linear_116_153)"
+                    fill="white"
                   />
                 </g>
-                <defs>
-                  <linearGradient
-                    id="paint0_linear_116_153"
-                    x1="100"
-                    y1="0"
-                    x2="100"
-                    y2="200"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stopColor="#DF99F7" />
-                    <stop offset="1" stopColor="#FFDBB0" />
-                  </linearGradient>
-                  <clipPath id="clip0_116_153">
-                    <rect width="200" height="200" fill="white" />
-                  </clipPath>
-                </defs>
               </svg>
-              <span className="capitalize font-poppins_normal mix-blend-lighten">
+              <span className="capitalize  font-mono_normal text-sm">
                 {values}
               </span>
             </li>

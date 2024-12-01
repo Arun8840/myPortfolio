@@ -4,6 +4,7 @@ export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./Utility/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -13,8 +14,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        outfit_normal: "var(--font-outfit-normal)",
-        outfit_bold: "var(--font-outfit-bold)",
+        mono_normal: "var(--font-mono-normal)",
+        mono_bold: "var(--font-mono-bold)",
         poppins_normal: "var(--font-poppins-normal)",
       },
     },

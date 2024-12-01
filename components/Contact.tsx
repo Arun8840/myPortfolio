@@ -1,3 +1,4 @@
+import Button from "@/Utility/UI/Button"
 import { Instagram, Linkedin, Mail, MoveUpRight, Phone } from "lucide-react"
 import React from "react"
 function Contact() {
@@ -85,13 +86,15 @@ function Contact() {
             placeholder="Message"
             className="p-3 border border-stone-600 border-opacity-30 rounded bg-transparent min-h-28"
           />
-          <button
-            type="submit"
-            className="font-outfit_normal bg-[#80e8e0]  flex items-center justify-center gap-2 w-full p-3"
-          >
-            Just Send
-            <MoveUpRight size={18} />
-          </button>
+          <Button
+            className="justify-center p-3"
+            varient={"primary"}
+            label={"Let's talk"}
+            icon={{
+              value: <MoveUpRight size={18} />,
+              color: "white",
+            }}
+          />
         </form>
       </div>
     </section>
