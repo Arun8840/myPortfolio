@@ -1,18 +1,18 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { Outfit, Poppins } from "next/font/google"
+import { Noto_Sans_Mono, Poppins } from "next/font/google"
 
-const outfit_bold = Outfit({
+const mono_bold = Noto_Sans_Mono({
   weight: "700",
   subsets: ["latin"],
   display: "block",
-  variable: "--font-outfit-bold",
+  variable: "--font-mono-bold",
 })
-const outfit_normal = Outfit({
+const mono_normal = Noto_Sans_Mono({
   weight: "300",
   subsets: ["latin"],
   display: "block",
-  variable: "--font-outfit-normal",
+  variable: "--font-mono-normal",
 })
 
 const poppins_normal = Poppins({
@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit_normal?.variable} ${outfit_bold?.variable} ${poppins_normal?.variable} antialiased bg-black`}
+        className={`${mono_normal?.variable} ${mono_bold?.variable} ${poppins_normal?.variable} antialiased bg-black`}
       >
         {children}
       </body>

@@ -1,50 +1,21 @@
 "use client"
-
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
 import Link from "next/link"
-import React, { useRef } from "react"
+import React from "react"
 import bannerImage from "../assets/aboutMe_banner.png"
 import Image from "next/image"
+import CardContainer from "@/Utility/UI/CardContainer"
 
-gsap.registerPlugin(useGSAP)
 function About() {
   const banner = bannerImage?.src
-  const headerStyle = `text-[2rem] text-[#dbf8f5] p-3 tracking-wider font-semibold font-outfit_bold`
+  const headerStyle = `text-[2rem] text-[#dbf8f5] p-3 tracking-wider font-poppins_normal`
 
-  const contentStyle = `leading-6 tracking-wide font-outfit_normal text-[#dbf8f5]`
-  const listContainer = useRef<HTMLUListElement>(null)
-  const tl = gsap.timeline()
-  useGSAP(() => {
-    tl.fromTo(
-      listContainer.current?.children || [],
-      {
-        y: 3,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        delay: 0.2,
-        stagger: 0.2,
-        duration: 1,
-        ease: "sine.out",
-      }
-    )
-  })
+  const contentStyle = `tracking-wide font-poppins_normal text-[#dbf8f5]`
+
   return (
     <section className="min-h-screen  lg:p-10 lg:overflow-hidden grid place-items-center">
       <div className="container p-2 mx-auto">
-        <ul
-          ref={listContainer}
-          className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          <li className="col-span-full bg-[#081414] backdrop-blur-sm rounded-xl relative overflow-clip">
-            <h1
-              className={`text-white font-outfit_bold font-extrabold bg-gradient-to-r from-blue-700 to-fuchsia-500 absolute -left-10 top-5 uppercase  w-[150px] text-center -rotate-45`}
-            >
-              About
-            </h1>
+        <div className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <CardContainer className="col-span-full">
             <div className="flex flex-wrap gap-4">
               <div className="p-3 pb-0">
                 <Image
@@ -75,9 +46,9 @@ function About() {
                 </p>
               </div>
             </div>
-          </li>
+          </CardContainer>
 
-          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4 md:col-span-2">
+          <CardContainer className="md:col-span-2">
             <h1 className={`${headerStyle}`}>Skills & Expertise</h1>
             <div className="p-3">
               <ul className=" grid grid-cols-1 md:grid-cols-2 gap-3 text-[#dbf8f5]">
@@ -110,9 +81,9 @@ function About() {
                 </li>
               </ul>
             </div>
-          </li>
+          </CardContainer>
 
-          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4">
+          <CardContainer>
             <h1 className={`${headerStyle}`}>My Journey</h1>
             <div className="p-3">
               <p className={`${contentStyle}`}>
@@ -123,9 +94,9 @@ function About() {
                 project I work on is engaging and visually captivating.
               </p>
             </div>
-          </li>
+          </CardContainer>
 
-          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4">
+          <CardContainer>
             <h1 className={`${headerStyle}`}>My Approach</h1>
             <div className="p-3">
               <p className={`${contentStyle}`}>
@@ -135,9 +106,9 @@ function About() {
                 alike to create seamless user experiences.
               </p>
             </div>
-          </li>
+          </CardContainer>
 
-          <li className="bg-[#081414] backdrop-blur-sm rounded-xl p-4">
+          <CardContainer className="md:col-span-2">
             <h1 className={`${headerStyle}`}>When I&rsquo;m Not Coding</h1>
             <div className="p-3">
               <p className={`${contentStyle}`}>
@@ -147,8 +118,8 @@ function About() {
                 and inspires my design work.
               </p>
             </div>
-          </li>
-        </ul>
+          </CardContainer>
+        </div>
       </div>
     </section>
   )

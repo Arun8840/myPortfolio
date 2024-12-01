@@ -1,0 +1,10 @@
+{
+  "primary": "#1a30fb",
+  "secondary": "#e4e6ef",
+  "background": "#ffffff",
+  "button_theme": {
+    "primary": "#1a30fb",
+    "secondary": "#e4e6ef",
+    "default": "#202020"
+  }
+}
