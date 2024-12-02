@@ -1,19 +1,25 @@
 "use client"
 import Link from "next/link"
 import React from "react"
-import bannerImage from "../assets/aboutMe_banner.png"
-import Image from "next/image"
+// import bannerImage from "../assets/IMG_1772.png"
 import CardContainer from "@/Utility/UI/CardContainer"
 import TimeLineContainer from "@/Utility/UI/timeLine/TimeLineContainer"
 import TimelineItems from "@/Utility/UI/timeLine/TimelineItems"
 import Button from "@/Utility/UI/Button"
-import { MoveUpRight } from "lucide-react"
+import {
+  Code,
+  FolderDot,
+  MoveUpRight,
+  Sparkles,
+  User,
+  Waypoints,
+} from "lucide-react"
 
 function About() {
-  const banner = bannerImage?.src
-  const headerStyle = `text-lg lg:text-[2rem] text-[#dbf8f5] p-2 tracking-wider font-mono_normal font-semibold`
+  // const banner = bannerImage?.src
+  const headerStyle = `text-lg lg:text-[2rem] text-white p-2 tracking-wider font-mono_normal font-semibold`
 
-  const contentStyle = `tracking-wide font-mono_normal text-[#dbf8f5]`
+  const contentStyle = `tracking-wide font-mono_normal text-white`
 
   const skills: { title: string; content: string[] }[] = [
     {
@@ -107,47 +113,32 @@ function About() {
     <section className="min-h-screen pt-5">
       <div className="container p-2 mx-auto">
         <div className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <CardContainer className="col-span-full">
-            <div className="flex flex-wrap gap-4">
-              <div className="p-3 pb-0">
-                <Image
-                  className="rounded-lg"
-                  src={banner}
-                  alt="bannerImage"
-                  width={200}
-                  height={200}
-                />
-              </div>
-              <div className="flex-1">
-                <h1 className={`${headerStyle}`}>
-                  <span>About</span>
-                  <Start />
-                </h1>
-                <p className={`${contentStyle}`}>
-                  Hello! I&rsquo;m Arun , a frontend developer with
-                  <span className="text-pink-500 font-medium px-2">
-                    3 years
-                  </span>{" "}
-                  of professional experience at
-                  <Link
-                    href={"http://www.zettastack.com/"}
-                    className="text-indigo-400 p-1 hover:border-b border-indigo-400"
-                  >
-                    Zetta Stack Systems Pvt
-                  </Link>
-                  . Ltd. I&rsquo;m passionate about creating responsive,
-                  interactive, and user-friendly web applications.
-                </p>
-              </div>
-            </div>
+          <CardContainer animate className="col-span-full p-4">
+            <h1 className={`${headerStyle} flex items-center gap-2`}>
+              <User className="inline" strokeWidth={2} />
+              <span>About</span>
+            </h1>
+            <p className={`${contentStyle} p-3`}>
+              Hello! <strong>I&rsquo;m Arun </strong>, a frontend developer with
+              <strong className="text-pink-500  px-2">3 years</strong>
+              of professional experience at
+              <Link
+                href={"http://www.zettastack.com/"}
+                className="text-indigo-400 p-1 hover:border-b border-indigo-400"
+              >
+                <strong> Zetta Stack Systems Pvt</strong>
+              </Link>
+              . Ltd. I&rsquo;m passionate about creating responsive,
+              interactive, and user-friendly web applications.
+            </p>
           </CardContainer>
 
-          <CardContainer className="col-span-full">
+          <CardContainer animate className="col-span-full">
             <div className="p-3 grid lg:grid-cols-2">
               {/* //todo skills */}
               <div>
                 <h1 className={`${headerStyle}`}>
-                  <Start />
+                  <Sparkles className="inline-flex" />
                   <span> Skills & Expertise</span>
                 </h1>
                 <div className="pl-5">
@@ -158,9 +149,7 @@ function About() {
                           className="font-mono_normal"
                           key={`${skillItems?.title}-${index}`}
                         >
-                          <h1 className="font-semibold ">
-                            {skillItems?.title}
-                          </h1>
+                          <strong>{skillItems?.title}</strong>
                           <p className="text-sm pt-2">
                             {skillItems?.content?.join(",")}
                           </p>
@@ -173,14 +162,13 @@ function About() {
               {/* //todo projects */}
               <div>
                 <h1 className={`${headerStyle}`}>
-                  <Start />
+                  <FolderDot className="inline-flex mr-2" />
                   <span>Projects</span>
                 </h1>
                 <div className="pl-5">
                   <TimeLineContainer>
                     {projects?.map((skillItems, index: number) => {
                       const isActive = skillItems?.active
-                      console.log(isActive)
                       return (
                         <TimelineItems
                           className={`font-mono_normal group/listitems ${
@@ -189,14 +177,9 @@ function About() {
                           key={`${skillItems?.title}-${index}`}
                         >
                           <div className="flex justify-between">
-                            <h1 className="font-semibold flex-1">
-                              {skillItems?.title}{" "}
-                              {isActive && (
-                                <small className="bg-green-600/20 text-green-600 rounded-full ring-1 ring-inset ring-green-600 py-1 px-2 text-xs">
-                                  active
-                                </small>
-                              )}
-                            </h1>
+                            <strong className="flex-1">
+                              {skillItems?.title}
+                            </strong>
                             {isActive && (
                               <Button
                                 disabled={!isActive}
@@ -221,9 +204,9 @@ function About() {
               </div>
             </div>
           </CardContainer>
-          <CardContainer className="col-span-full">
+          <CardContainer animate className="col-span-full">
             <h1 className={`${headerStyle}`}>
-              <Start />
+              <Waypoints className="inline" />
               <span> My Journey</span>
             </h1>
             <div className="p-3">
@@ -236,9 +219,9 @@ function About() {
               </p>
             </div>
           </CardContainer>
-          <CardContainer className="md:col-span-2">
+          <CardContainer animate className="md:col-span-2">
             <h1 className={`${headerStyle}`}>
-              <Start />
+              <Code className="inline mr-3" />
               <span>When I&rsquo;m Not Coding</span>
             </h1>
             <div className="p-3">
@@ -250,7 +233,7 @@ function About() {
               </p>
             </div>
           </CardContainer>
-          <CardContainer className="md:col-span-2">
+          <CardContainer animate className="md:col-span-2">
             <h1 className={`${headerStyle}`}>
               <Start />
               <span> My Approach</span>

@@ -14,7 +14,7 @@ const TimeLineContainer = ({ children, className }: TimelineProp) => {
   })
 
   const baseClass =
-    "border-l border-dashed border-stone-800 pl-5 flex flex-col gap-5"
+    "lg:border-l border-dashed border-stone-800 p-0 lg:pl-5 flex flex-col gap-5"
   return <ul className={cn(baseClass, className)}>{items}</ul>
 }
 
