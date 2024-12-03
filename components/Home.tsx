@@ -1,13 +1,26 @@
 "use client"
+
+import React from "react"
 import Button from "@/Utility/UI/Button"
 import CardContainer from "@/Utility/UI/CardContainer"
-import { Ellipsis } from "lucide-react"
-import React from "react"
+import { Bug, Ellipsis } from "lucide-react"
+// import dynamic from "next/dynamic"
 
 function Homepage() {
+  // const Loader = () => (
+  //   <div className="flex items-center justify-center h-screen">
+  //     <div className="loader text-white">Loading...</div>
+  //   </div>
+  // )
+
+  // const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  //   ssr: false, // Ensures it renders only on the client
+  //   loading: () => <Loader />,
+  // })
+
   return (
-    <section className="min-h-screen flex flex-col gap-3 p-5">
-      {/* //todo header */}
+    <section className="min-h-screen flex flex-col p-5">
+      {/* Header */}
       <div className="flex flex-col lg:flex-row gap-3 justify-between container mx-auto items-start py-5">
         <h1 className="font-mono_normal font-semibold capitalize text-white tracking-wide text-2xl">
           Im arun
@@ -22,9 +35,18 @@ function Homepage() {
         <div className="hidden lg:flex items-center gap-3">
           <Button
             label={"Let's talk"}
+            icon={{
+              value: (
+                <Bug
+                  strokeWidth={0.8}
+                  className="rotate-0 group-hover/buttonTalk:rotate-90 transition-transform duration-150"
+                />
+              ),
+              color: "white",
+            }}
             key={"contact_button"}
             varient={"primary"}
-            className="font-mono_normal"
+            className="font-mono_normal group/buttonTalk"
           />
           <Button
             className="font-mono_normal"
@@ -38,10 +60,14 @@ function Homepage() {
         </div>
       </div>
 
-      {/* //todo banner */}
-
+      {/* Banner */}
       <CardContainer className="flex-1 hidden lg:block container mx-auto">
-        <small>Banner</small>
+        {/* Use Suspense to show the loader */}
+        {/* <Spline
+          className="size-full"
+          scene="https://prod.spline.design/mm6JFGvxLO4ShLMX/scene.splinecode"
+        /> */}
+        <h1>content</h1>
       </CardContainer>
     </section>
   )
