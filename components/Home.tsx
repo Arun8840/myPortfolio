@@ -1,25 +1,27 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import Button from "@/Utility/UI/Button"
 import CardContainer from "@/Utility/UI/CardContainer"
-import { Bug, Ellipsis } from "lucide-react"
-// import dynamic from "next/dynamic"
+import { Bug, Ellipsis, Folder, Home, Info, Phone } from "lucide-react"
+import MenuContainer from "@/Utility/UI/FlotMenu/MenuContainer"
+import { MenuTrigger } from "@/Utility/UI/FlotMenu/MenuTrigger"
+import { MenuItem } from "@/Utility/UI/FlotMenu/MenuItem"
+import { MenuList } from "@/Utility/UI/FlotMenu/MenuList"
 
 function Homepage() {
-  // const Loader = () => (
-  //   <div className="flex items-center justify-center h-screen">
-  //     <div className="loader text-white">Loading...</div>
-  //   </div>
-  // )
-
-  // const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  //   ssr: false, // Ensures it renders only on the client
-  //   loading: () => <Loader />,
-  // })
-
+  const [isOpenMenu, setOpenMenu] = useState(false)
+  const MenuItems: { label: string; icon: React.ReactNode }[] = [
+    { label: "Home", icon: <Home size={18} /> },
+    { label: "About", icon: <Info size={18} /> },
+    { label: "Projects", icon: <Folder size={18} /> },
+    { label: "Contact", icon: <Phone size={18} /> },
+  ]
+  const handleOpenMenu = () => {
+    setOpenMenu(!isOpenMenu)
+  }
   return (
-    <section className="min-h-screen flex flex-col p-5">
+    <section className="min-h-screen flex flex-col">
       {/* Header */}
       <div className="flex flex-col lg:flex-row gap-3 justify-between container mx-auto items-start py-5">
         <h1 className="font-mono_normal font-semibold capitalize text-white tracking-wide text-2xl">
@@ -48,25 +50,42 @@ function Homepage() {
             varient={"primary"}
             className="font-mono_normal group/buttonTalk"
           />
-          <Button
-            className="font-mono_normal"
-            label={"Menu"}
-            key={"menu_button"}
-            icon={{
-              color: "white",
-              value: <Ellipsis size={18} />,
-            }}
-          />
+          <MenuContainer defaultOpen={isOpenMenu}>
+            <MenuTrigger onClick={handleOpenMenu}>
+              <Button
+                className="font-mono_normal"
+                key={"menu_button"}
+                icon={{
+                  color: "white",
+                  value: (
+                    <Ellipsis
+                      size={18}
+                      className="hover:rotate-90 transition-transform duration-200"
+                    />
+                  ),
+                }}
+              />
+            </MenuTrigger>
+            <MenuList className="bg-black">
+              {MenuItems?.map((options, optionIndex: number) => {
+                return (
+                  <MenuItem
+                    onClick={handleOpenMenu}
+                    showIcon={{ show: true, icon: options?.icon }}
+                    className="text-lg text-[var(--primary)]"
+                    key={`${options?.label}-${optionIndex}`}
+                  >
+                    {options?.label}
+                  </MenuItem>
+                )
+              })}
+            </MenuList>
+          </MenuContainer>
         </div>
       </div>
 
       {/* Banner */}
       <CardContainer className="flex-1 hidden lg:block container mx-auto">
-        {/* Use Suspense to show the loader */}
-        {/* <Spline
-          className="size-full"
-          scene="https://prod.spline.design/mm6JFGvxLO4ShLMX/scene.splinecode"
-        /> */}
         <h1>content</h1>
       </CardContainer>
     </section>
