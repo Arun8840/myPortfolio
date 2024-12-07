@@ -33,7 +33,7 @@ function Button({
 
   const varient_value = buttonTheme[varient ?? "default"]
 
-  const baseClass = `flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white p-3 rounded-full transition-all duration-150`
+  const baseClass = `flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white p-3 rounded-full bg-[var(--varient)] hover:bg-[var(--effect)] transition-all duration-150`
   return (
     <button
       {...otherProps}
@@ -43,10 +43,7 @@ function Button({
           "--effect": `${varient_value}95`,
         } as CSSProperties
       }
-      className={cn(
-        `bg-[var(--varient)] hover:bg-[var(--effect)] ${baseClass}`,
-        className
-      )}
+      className={cn(baseClass, className)}
     >
       {icon && (
         <span

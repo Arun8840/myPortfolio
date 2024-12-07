@@ -14,11 +14,13 @@ import {
   User,
   Waypoints,
 } from "lucide-react"
-
+import Bar from "@/Utility/UI/Chart/Bar"
+import StickyContainer from "@/Utility/UI/StickyContainer"
+import ColorPallet from "@/Utility/UI/ColorPallet"
 function About() {
   // const banner = bannerImage?.src
-  const headerStyle = `text-lg lg:text-[2rem] text-white p-2 tracking-wider font-mono_normal font-semibold`
 
+  const headerStyle = `text-lg lg:text-[2rem] text-white p-2 tracking-wider font-mono_normal font-semibold`
   const contentStyle = `tracking-wide font-mono_normal text-white`
 
   const skills: { title: string; content: string[] }[] = [
@@ -45,6 +47,37 @@ function About() {
     {
       title: "Version Control:",
       content: ["Git", "GitHub"],
+    },
+  ]
+
+  const skillPercent: { label: string; value: number }[] = [
+    {
+      label: "HTML",
+      value: 90,
+    },
+    {
+      label: "CSS",
+      value: 90,
+    },
+    {
+      label: "JS",
+      value: 80,
+    },
+    {
+      label: "TAILWIND CSS",
+      value: 90,
+    },
+    {
+      label: "REACT",
+      value: 90,
+    },
+    {
+      label: "NEXT JS",
+      value: 80,
+    },
+    {
+      label: "NODE JS",
+      value: 60,
     },
   ]
 
@@ -109,147 +142,198 @@ function About() {
     )
   }
 
-  return (
-    <section className="min-h-screen pt-5">
-      <div className="container p-2 mx-auto">
-        <div className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <CardContainer animate className="col-span-full p-4">
-            <h1 className={`${headerStyle} flex items-center gap-2`}>
-              <User className="inline" strokeWidth={2} />
-              <span>About</span>
-            </h1>
-            <p className={`${contentStyle} p-3`}>
-              Hello! <strong>I&rsquo;m Arun </strong>, a frontend developer with
-              <strong className="text-pink-500  px-2">3 years</strong>
-              of professional experience at
-              <Link
-                href={"http://www.zettastack.com/"}
-                className="text-indigo-400 p-1 hover:border-b border-indigo-400"
-              >
-                <strong> Zetta Stack Systems Pvt</strong>
-              </Link>
-              . Ltd. I&rsquo;m passionate about creating responsive,
-              interactive, and user-friendly web applications.
-            </p>
-          </CardContainer>
+  const pallets = [
+    {
+      primary: "#0b8636",
+      secondary: "#115427",
+      bg: "#090707",
+      cardbg: "#113b1d",
+    },
+    {
+      primary: "#2463eb",
+      secondary: "#60a8fa",
+      bg: "#090707",
+      cardbg: "#3a87f7",
+    },
+    {
+      primary: "#e6e5e5",
+      secondary: "#bcbcbd",
+      bg: "#090707",
+      cardbg: "#6a6a6c",
+    },
+    {
+      primary: "#e11d48",
+      secondary: "#e9546f",
+      bg: "#090707",
+      cardbg: "#f17e92",
+    },
+  ]
 
-          <CardContainer animate className="col-span-full">
-            <div className="p-3 grid lg:grid-cols-2">
-              {/* //todo skills */}
-              <div>
-                <h1 className={`${headerStyle}`}>
-                  <Sparkles className="inline-flex" />
-                  <span> Skills & Expertise</span>
-                </h1>
-                <div className="pl-5">
-                  <TimeLineContainer>
-                    {skills?.map((skillItems, index: number) => {
-                      return (
-                        <TimelineItems
-                          className="font-mono_normal"
-                          key={`${skillItems?.title}-${index}`}
-                        >
-                          <strong>{skillItems?.title}</strong>
-                          <p className="text-sm pt-2">
-                            {skillItems?.content?.join(",")}
-                          </p>
-                        </TimelineItems>
-                      )
-                    })}
-                  </TimeLineContainer>
+  return (
+    <>
+      {/* //todo stricky container */}
+      <section className="min-h-screen pt-5 flex">
+        <div className="container p-2 mx-auto">
+          <div className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <CardContainer className="md:col-span-2 p-4">
+              <h1 className={`${headerStyle} flex items-center gap-2`}>
+                <User className="inline" strokeWidth={2} />
+                <span>About</span>
+              </h1>
+              <p className={`${contentStyle} p-3`}>
+                Hello! <strong>I&rsquo;m Arun </strong>, a frontend developer
+                with
+                <strong className="text-pink-500  px-2">3 years</strong>
+                of professional experience at
+                <Link
+                  href={"http://www.zettastack.com/"}
+                  className="text-indigo-400 p-1 hover:border-b border-indigo-400"
+                >
+                  <strong> Zetta Stack Systems Pvt</strong>
+                </Link>
+                . Ltd. I&rsquo;m passionate about creating responsive,
+                interactive, and user-friendly web applications.
+              </p>
+            </CardContainer>
+            <CardContainer className="md:col-span-2">
+              <h1 className={`${headerStyle}`}>
+                <Waypoints className="inline" />
+                <span> My Journey</span>
+              </h1>
+              <div className="p-3">
+                <p className={`${contentStyle}`}>
+                  Throughout my journey, I&rsquo;ve mastered key frontend tools
+                  like React, Next.js, Tailwind CSS, and Figma to build
+                  intuitive interfaces. I&rsquo;m also proficient in Spline for
+                  3D design and GSAP for creating smooth animations, ensuring
+                  that every project I work on is engaging and visually
+                  captivating.
+                </p>
+              </div>
+            </CardContainer>
+            <CardContainer className="col-span-full">
+              <div className="p-3 grid lg:grid-cols-2">
+                {/* //todo skills */}
+                <div>
+                  <h1 className={`${headerStyle}`}>
+                    <Sparkles className="inline-flex" />
+                    <span> Skills & Expertise</span>
+                  </h1>
+                  <div className="pl-5">
+                    <TimeLineContainer animate>
+                      {skills?.map((skillItems, index: number) => {
+                        return (
+                          <TimelineItems
+                            className="font-mono_normal"
+                            key={`${skillItems?.title}-${index}`}
+                          >
+                            <strong>{skillItems?.title}</strong>
+                            <p className="text-sm pt-2">
+                              {skillItems?.content?.join(",")}
+                            </p>
+                          </TimelineItems>
+                        )
+                      })}
+                    </TimeLineContainer>
+                  </div>
+                </div>
+                {/* //todo projects */}
+                <div>
+                  <h1 className={`${headerStyle}`}>
+                    <FolderDot className="inline-flex mr-2" />
+                    <span>Projects</span>
+                  </h1>
+                  <div className="pl-5">
+                    <TimeLineContainer animate>
+                      {projects?.map((skillItems, index: number) => {
+                        const isActive = skillItems?.active
+                        return (
+                          <TimelineItems
+                            className={`font-mono_normal group/listitems ${
+                              !isActive && "opacity-50"
+                            }`}
+                            key={`${skillItems?.title}-${index}`}
+                          >
+                            <div className="flex justify-between">
+                              <strong className="flex-1">
+                                {skillItems?.title}
+                              </strong>
+                              {isActive && (
+                                <Button
+                                  disabled={!isActive}
+                                  title={`Open ${skillItems?.title}`}
+                                  className="p-2 opacity-0 scale-75 group-hover/listitems:scale-100 group-hover/listitems:opacity-100 transition-all duration-150"
+                                  varient={"primary"}
+                                  icon={{
+                                    value: <MoveUpRight size={18} />,
+                                    color: "white",
+                                  }}
+                                />
+                              )}
+                            </div>
+                            <p className="text-sm pt-1 line-clamp-2">
+                              {skillItems?.description}
+                            </p>
+                          </TimelineItems>
+                        )
+                      })}
+                    </TimeLineContainer>
+                  </div>
                 </div>
               </div>
-              {/* //todo projects */}
-              <div>
-                <h1 className={`${headerStyle}`}>
-                  <FolderDot className="inline-flex mr-2" />
-                  <span>Projects</span>
-                </h1>
-                <div className="pl-5">
-                  <TimeLineContainer>
-                    {projects?.map((skillItems, index: number) => {
-                      const isActive = skillItems?.active
-                      return (
-                        <TimelineItems
-                          className={`font-mono_normal group/listitems ${
-                            !isActive && "opacity-50"
-                          }`}
-                          key={`${skillItems?.title}-${index}`}
-                        >
-                          <div className="flex justify-between">
-                            <strong className="flex-1">
-                              {skillItems?.title}
-                            </strong>
-                            {isActive && (
-                              <Button
-                                disabled={!isActive}
-                                title={`Open ${skillItems?.title}`}
-                                className="p-2 opacity-0 scale-75 group-hover/listitems:scale-100 group-hover/listitems:opacity-100 transition-all duration-150"
-                                varient={"primary"}
-                                icon={{
-                                  value: <MoveUpRight size={18} />,
-                                  color: "white",
-                                }}
-                              />
-                            )}
-                          </div>
-                          <p className="text-sm pt-1 line-clamp-2">
-                            {skillItems?.description}
-                          </p>
-                        </TimelineItems>
-                      )
-                    })}
-                  </TimeLineContainer>
-                </div>
+            </CardContainer>
+
+            <CardContainer className="md:col-span-2">
+              <h1 className={`${headerStyle}`}>
+                <Code className="inline mr-3" />
+                <span>When I&rsquo;m Not Coding</span>
+              </h1>
+              <div className="p-3">
+                <p className={`${contentStyle} `}>
+                  Outside of coding, I enjoy exploring new web development
+                  trends and experimenting with innovative tools and techniques.
+                  I&rsquo;m also passionate about art, which fuels my creativity
+                  and inspires my design work.
+                </p>
               </div>
-            </div>
-          </CardContainer>
-          <CardContainer animate className="col-span-full">
-            <h1 className={`${headerStyle}`}>
-              <Waypoints className="inline" />
-              <span> My Journey</span>
-            </h1>
-            <div className="p-3">
-              <p className={`${contentStyle}`}>
-                Throughout my journey, I&rsquo;ve mastered key frontend tools
-                like React, Next.js, Tailwind CSS, and Figma to build intuitive
-                interfaces. I&rsquo;m also proficient in Spline for 3D design
-                and GSAP for creating smooth animations, ensuring that every
-                project I work on is engaging and visually captivating.
-              </p>
-            </div>
-          </CardContainer>
-          <CardContainer animate className="md:col-span-2">
-            <h1 className={`${headerStyle}`}>
-              <Code className="inline mr-3" />
-              <span>When I&rsquo;m Not Coding</span>
-            </h1>
-            <div className="p-3">
-              <p className={`${contentStyle} `}>
-                Outside of coding, I enjoy exploring new web development trends
-                and experimenting with innovative tools and techniques.
-                I&rsquo;m also passionate about art, which fuels my creativity
-                and inspires my design work.
-              </p>
-            </div>
-          </CardContainer>
-          <CardContainer animate className="md:col-span-2">
-            <h1 className={`${headerStyle}`}>
-              <Start />
-              <span> My Approach</span>
-            </h1>
-            <div className="p-3">
-              <p className={`${contentStyle}`}>
-                I believe in crafting clean, maintainable code that blends
-                functionality with beautiful design. With a strong focus on
-                collaboration, I enjoy working with designers and developers
-                alike to create seamless user experiences.
-              </p>
-            </div>
-          </CardContainer>
+            </CardContainer>
+            {/* //todo chart */}
+            <CardContainer className="md:col-span-2">
+              <Bar animate data={skillPercent} />
+            </CardContainer>
+            <CardContainer className="md:col-span-2">
+              <h1 className={`${headerStyle}`}>
+                <Start />
+                <span> My Approach</span>
+              </h1>
+              <div className="p-3">
+                <p className={`${contentStyle}`}>
+                  I believe in crafting clean, maintainable code that blends
+                  functionality with beautiful design. With a strong focus on
+                  collaboration, I enjoy working with designers and developers
+                  alike to create seamless user experiences.
+                </p>
+              </div>
+            </CardContainer>
+          </div>
         </div>
-      </div>
-    </section>
+        <StickyContainer className="flex flex-col gap-3">
+          {pallets?.map((colors, colorindex) => {
+            return (
+              <ColorPallet
+                data={{
+                  primary: colors?.primary,
+                  secondary: colors?.secondary,
+                  background: colors?.bg,
+                  cardbackground: colors?.cardbg,
+                }}
+                key={`${colorindex}-${colors?.primary}`}
+              />
+            )
+          })}
+        </StickyContainer>
+      </section>
+    </>
   )
 }
 
