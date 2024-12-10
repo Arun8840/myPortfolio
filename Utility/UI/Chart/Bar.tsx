@@ -51,7 +51,7 @@ function Bar({ data, animate = false, className }: ChartProps) {
             <li
               style={{ "--dataHeight": `${values?.value}%` } as CSSProperties}
               key={`${values?.label}-${valueIndex}`}
-              className="rounded-t-3xl flex-1 h-[var(--dataHeight)] bg-gradient-to-b from-[var(--primary)] to-black/10 hover:scale-105 transition-transform duration-150 grid"
+              className=" flex-1 h-[var(--dataHeight)] bg-gradient-to-b from-[var(--primary)] to-black/10 hover:scale-105 transition-transform duration-150 grid"
             >
               <p className="text-white self-end block text-center font-mono_normal text-xs line-clamp-1">
                 {values?.label}

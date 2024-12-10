@@ -17,6 +17,7 @@ export default {
         mono_normal: "var(--font-mono-normal)",
         mono_bold: "var(--font-mono-bold)",
         poppins_normal: "var(--font-poppins-normal)",
+        test_font: "var(--testfont)",
       },
     },
   },
