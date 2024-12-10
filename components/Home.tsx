@@ -4,6 +4,9 @@ import React, { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Spline from "@splinetool/react-spline"
+import Label from "@/Utility/UI/Label"
+import Button from "@/Utility/UI/Button"
+import { ArrowRight } from "lucide-react"
 gsap.registerPlugin(useGSAP)
 
 function Homepage() {
@@ -25,27 +28,33 @@ function Homepage() {
     )
   })
   return (
-    <section className="min-h-screen flex justify-start p-10">
+    <section className="min-h-screen flex justify-start p-10 lg:overflow-hidden">
       {/* Header */}
       <div
         ref={contentRef}
-        className="container flex flex-col gap-4 lg:gap-9  mx-auto"
+        className="container flex flex-col gap-4 lg:gap-9 p-5  mx-auto"
       >
-        <h1 className="font-mono_normal font-semibold capitalize text-white text-7xl">
-          Im arun
-        </h1>
+        <Label className="text-white font-semibold text-7xl">Im arun</Label>
 
         <p className=" text-lg font-mono_bold text-white tracking-wide w-full lg:w-1/2">
           A creative Frontend Developer specializing in React, Next.js, and
           modern JavaScript, building stunning and responsive web experiences.
           Let bring your vision to life with clean code and innovative designs.
         </p>
+
+        <Button
+          icon={{ value: <ArrowRight />, color: "white" }}
+          varient={"primary"}
+          className="size-fit"
+        >
+          Let&apos;s talk
+        </Button>
       </div>
 
       <Spline
         ref={splineRef}
-        className="absolute size-full inset-0"
-        scene="https://prod.spline.design/1quW7DKtLpPPxCmJ/scene.splinecode"
+        className="absolute size-full inset-0 hidden lg:block"
+        scene="https://prod.spline.design/WhUkzzsLbJBVTQEI/scene.splinecode"
       />
     </section>
   )
