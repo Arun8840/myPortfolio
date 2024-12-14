@@ -31,7 +31,7 @@ function Contact() {
           <textarea className="border p-3 rounded bg-inherit border-stone-700 border-opacity-30 text-white mmin-h-28" />
           <Button
             className="justify-center font-mono_normal p-3 rounded-lg"
-            varient={"primary"}
+            variant={"primary"}
             label={"Let's talk"}
             icon={{
               value: <MoveUpRight size={18} />,

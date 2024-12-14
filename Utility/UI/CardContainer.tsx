@@ -16,7 +16,7 @@ function CardContainer({
   const primary = theme?.primary
   const baseClass = `bg-[#090707] border border-transparent p-3 rounded-3xl ${
     animate &&
-    "hover:bg-[var(--primary)] hover:border-[var(--primaryBorder)] transition-colors duration-200"
+    "hover:bg-[var(--primary)] hover:border-[var(--primaryBorder)] hover:-rotate-[.5deg] transition-all duration-200"
   }`
   return (
     <div
