@@ -3,14 +3,70 @@ import ButtonUrl from "@/Utility/UI/ButtonUrl"
 import CardContainer from "@/Utility/UI/CardContainer"
 import Skeleton from "@/Utility/UI/Skeleton"
 import Switch from "@/Utility/UI/Switch"
+import TabContainer from "@/Utility/UI/Tab/TabContainer"
+import TabList from "@/Utility/UI/Tab/TabList"
+import TabRender from "@/Utility/UI/Tab/TabRender"
+import TabTrigger from "@/Utility/UI/Tab/TabTrigger"
 import TimeLineContainer from "@/Utility/UI/timeLine/TimeLineContainer"
 import TimelineItems from "@/Utility/UI/timeLine/TimelineItems"
-import { ArrowRight, LinkIcon, Plus, Sun } from "lucide-react"
+import {
+  ArrowRight,
+  KeyRound,
+  LinkIcon,
+  Plus,
+  Settings,
+  Sun,
+} from "lucide-react"
 import React from "react"
 
 function PackageComponents() {
   return (
     <section className="pt-3 grid lg:grid-cols-2  gap-3">
+      <CardContainer className="">
+        <h1 className="text-white font-mono_normal pb-5 font-semibold capitalize">
+          Tab component
+        </h1>
+
+        <TabContainer defaultValue="Account">
+          <TabList>
+            <TabTrigger value="Account">Account</TabTrigger>
+            <TabTrigger icon={<Settings size={18} />} value="Settings">
+              Settings
+            </TabTrigger>
+            <TabTrigger disabled icon={<KeyRound size={18} />} value="Security">
+              Security
+            </TabTrigger>
+          </TabList>
+          <TabRender value="Account">
+            <h1>Account</h1>
+            <p className="pt-3">
+              Without Icon A clean and simple tab navigation system that
+              displays only text labels for each tab. Ideal for minimalist
+              designs and straightforward content organization. Focuses solely
+              on functionality without visual distractions.
+            </p>
+          </TabRender>
+          <TabRender value="Security">
+            <h1>Security</h1>
+            <p>
+              With Icon An enhanced tab navigation system that includes icons
+              alongside text labels. Icons provide a visual cue, making it
+              easier for users to identify tab content. Great for intuitive
+              navigation in visually rich applications.
+            </p>
+          </TabRender>
+          <TabRender value="Settings">
+            <h1>Settings</h1>
+            <p>
+              Disabled Tab Navigation A tab navigation system with the option to
+              disable specific tabs. Disabled tabs appear visually distinct and
+              cannot be selected. Useful for guiding users or restricting access
+              to certain sections.
+            </p>
+          </TabRender>
+        </TabContainer>
+      </CardContainer>
+
       {/* //todo groups */}
       <CardContainer className="col-span-full">
         <h1 className="text-white font-mono_normal pb-5 font-semibold capitalize">
