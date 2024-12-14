@@ -5,50 +5,13 @@ import React from "react"
 import CardContainer from "@/Utility/UI/CardContainer"
 import TimeLineContainer from "@/Utility/UI/timeLine/TimeLineContainer"
 import TimelineItems from "@/Utility/UI/timeLine/TimelineItems"
-import Button from "@/Utility/UI/Button"
-import {
-  Code,
-  FolderDot,
-  MoveUpRight,
-  Sparkles,
-  User,
-  Waypoints,
-} from "lucide-react"
+import { Code, Sparkles, User, Waypoints } from "lucide-react"
 import Bar from "@/Utility/UI/Chart/Bar"
-import StickyContainer from "@/Utility/UI/StickyContainer"
-import ColorPallet from "@/Utility/UI/ColorPallet"
+import useStore from "@/Store/Store"
 function About() {
-  // const banner = bannerImage?.src
-
   const headerStyle = `text-lg lg:text-[2rem] text-white p-2 tracking-wider font-mono_normal font-semibold`
   const contentStyle = `tracking-wide font-mono_normal text-white`
-
-  const skills: { title: string; content: string[] }[] = [
-    {
-      title: "Languages:",
-      content: ["HTML", "CSS", "JavaScript (ES6+)", "TypeScript"],
-    },
-    {
-      title: "Frameworks & Libraries:",
-      content: ["React", "Next.js", "GSAP (GreenSock Animation Platform)"],
-    },
-    {
-      title: "Design & Tools:",
-      content: ["Figma", "Spline (3D design)", "Tailwind CSS"],
-    },
-    {
-      title: "API Integration:",
-      content: ["RESTful APIs"],
-    },
-    {
-      title: "Responsive Design:",
-      content: ["Mobile-first approach", "Flexbox", "CSS Grid"],
-    },
-    {
-      title: "Version Control:",
-      content: ["Git", "GitHub"],
-    },
-  ]
+  const skills = useStore((state) => state?.skills)
 
   const skillPercent: { label: string; value: number }[] = [
     {
@@ -81,49 +44,6 @@ function About() {
     },
   ]
 
-  const projects: { title: string; description: string[]; active: boolean }[] =
-    [
-      {
-        active: false,
-        title: "E-Commerce Platform",
-        description: [
-          "Developed a responsive e-commerce platform using React and Next.js.",
-          "Implemented dynamic product filters and sorting for an improved user experience.",
-          "Integrated payment gateway using Stripe API for secure transactions.",
-        ],
-      },
-      {
-        active: true,
-        title: "Portfolio Website",
-        description: [
-          "Built a personal portfolio website to showcase projects and skills.",
-          "Utilized Tailwind CSS for modern design and responsiveness.",
-          "Deployed on Vercel with custom domain integration.",
-        ],
-      },
-      {
-        active: true,
-        title: "Expense Tracker Mobile App",
-        description: [
-          "Developed a cross-platform mobile app for tracking daily expenses using React Native.",
-          "Implemented a user-friendly interface with NativeWind for styling components.",
-          "Integrated secure data storage using AsyncStorage and Firebase for user authentication.",
-          "Added features for category-based expense tracking and visual analytics using charts.",
-        ],
-      },
-      {
-        active: false,
-        title: "Todo App with Drag and Drop",
-        description: [
-          "Built a todo app with drag-and-drop functionality using `react-dnd` in React.",
-          "Implemented local storage for saving tasks and their completion status.",
-          "Created a user-friendly interface with dynamic task filtering (e.g., completed, pending).",
-          "Added features for editing, deleting, and reordering tasks with drag-and-drop.",
-          "Utilized `react-dnd` to allow users to reorder tasks by dragging them within the list.",
-        ],
-      },
-    ]
-
   const Start = () => {
     return (
       <svg
@@ -142,32 +62,32 @@ function About() {
     )
   }
 
-  const pallets = [
-    {
-      primary: "#0b8636",
-      secondary: "#115427",
-      bg: "#090707",
-      cardbg: "#113b1d",
-    },
-    {
-      primary: "#2463eb",
-      secondary: "#60a8fa",
-      bg: "#090707",
-      cardbg: "#3a87f7",
-    },
-    {
-      primary: "#e6e5e5",
-      secondary: "#bcbcbd",
-      bg: "#090707",
-      cardbg: "#6a6a6c",
-    },
-    {
-      primary: "#e11d48",
-      secondary: "#e9546f",
-      bg: "#090707",
-      cardbg: "#f17e92",
-    },
-  ]
+  // const pallets = [
+  //   {
+  //     primary: "#0b8636",
+  //     secondary: "#115427",
+  //     bg: "#090707",
+  //     cardbg: "#113b1d",
+  //   },
+  //   {
+  //     primary: "#2463eb",
+  //     secondary: "#60a8fa",
+  //     bg: "#090707",
+  //     cardbg: "#3a87f7",
+  //   },
+  //   {
+  //     primary: "#e6e5e5",
+  //     secondary: "#bcbcbd",
+  //     bg: "#090707",
+  //     cardbg: "#6a6a6c",
+  //   },
+  //   {
+  //     primary: "#e11d48",
+  //     secondary: "#e9546f",
+  //     bg: "#090707",
+  //     cardbg: "#f17e92",
+  //   },
+  // ]
 
   return (
     <>
@@ -175,7 +95,7 @@ function About() {
       <section className="min-h-screen pt-5 flex ">
         <div className="container p-2 mx-auto">
           <div className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <CardContainer className="md:col-span-2 p-4">
+            <CardContainer animate className="md:col-span-2 p-4">
               <h1 className={`${headerStyle} flex items-center gap-2`}>
                 <User className="inline" strokeWidth={2} />
                 <span>About</span>
@@ -195,7 +115,7 @@ function About() {
                 interactive, and user-friendly web applications.
               </p>
             </CardContainer>
-            <CardContainer className="md:col-span-2">
+            <CardContainer animate className="md:col-span-2">
               <h1 className={`${headerStyle}`}>
                 <Waypoints className="inline" />
                 <span> My Journey</span>
@@ -211,7 +131,7 @@ function About() {
                 </p>
               </div>
             </CardContainer>
-            <CardContainer className="col-span-full">
+            <CardContainer animate className="col-span-full">
               <div className="p-3 grid lg:grid-cols-2">
                 {/* //todo skills */}
                 <div>
@@ -237,53 +157,27 @@ function About() {
                     </TimeLineContainer>
                   </div>
                 </div>
-                {/* //todo projects */}
-                <div>
+                <div className="flex flex-col">
                   <h1 className={`${headerStyle}`}>
-                    <FolderDot className="inline-flex mr-2" />
-                    <span>Projects</span>
+                    <Start />
+                    <span> My Approach</span>
                   </h1>
-                  <div className="pl-5">
-                    <TimeLineContainer animate>
-                      {projects?.map((skillItems, index: number) => {
-                        const isActive = skillItems?.active
-                        return (
-                          <TimelineItems
-                            className={`font-mono_normal group/listitems ${
-                              !isActive && "opacity-50"
-                            }`}
-                            key={`${skillItems?.title}-${index}`}
-                          >
-                            <div className="flex justify-between">
-                              <strong className="flex-1">
-                                {skillItems?.title}
-                              </strong>
-                              {isActive && (
-                                <Button
-                                  disabled={!isActive}
-                                  title={`Open ${skillItems?.title}`}
-                                  className="p-2 opacity-0 scale-75 group-hover/listitems:scale-100 group-hover/listitems:opacity-100 transition-all duration-150"
-                                  varient={"primary"}
-                                  icon={{
-                                    value: <MoveUpRight size={18} />,
-                                    color: "white",
-                                  }}
-                                />
-                              )}
-                            </div>
-                            <p className="text-sm pt-1 line-clamp-2">
-                              {skillItems?.description}
-                            </p>
-                          </TimelineItems>
-                        )
-                      })}
-                    </TimeLineContainer>
+                  <div className="p-3">
+                    <p className={`${contentStyle}`}>
+                      I believe in crafting clean, maintainable code that blends
+                      functionality with beautiful design. With a strong focus
+                      on collaboration, I enjoy working with designers and
+                      developers alike to create seamless user experiences.
+                    </p>
                   </div>
+
+                  {/* //todo chart */}
+                  <Bar animate data={skillPercent} />
                 </div>
               </div>
             </CardContainer>
 
-            <CardContainer className="md:col-span-2">
+            <CardContainer animate className="col-span-full">
               <h1 className={`${headerStyle}`}>
                 <Code className="inline mr-3" />
                 <span>When I&rsquo;m Not Coding</span>
@@ -297,41 +191,8 @@ function About() {
                 </p>
               </div>
             </CardContainer>
-            {/* //todo chart */}
-            <CardContainer className="md:col-span-2">
-              <Bar animate data={skillPercent} />
-            </CardContainer>
-            <CardContainer className="md:col-span-2">
-              <h1 className={`${headerStyle}`}>
-                <Start />
-                <span> My Approach</span>
-              </h1>
-              <div className="p-3">
-                <p className={`${contentStyle}`}>
-                  I believe in crafting clean, maintainable code that blends
-                  functionality with beautiful design. With a strong focus on
-                  collaboration, I enjoy working with designers and developers
-                  alike to create seamless user experiences.
-                </p>
-              </div>
-            </CardContainer>
           </div>
         </div>
-        <StickyContainer className="flex flex-col gap-3">
-          {pallets?.map((colors, colorindex) => {
-            return (
-              <ColorPallet
-                data={{
-                  primary: colors?.primary,
-                  secondary: colors?.secondary,
-                  background: colors?.bg,
-                  cardbackground: colors?.cardbg,
-                }}
-                key={`${colorindex}-${colors?.primary}`}
-              />
-            )
-          })}
-        </StickyContainer>
       </section>
     </>
   )

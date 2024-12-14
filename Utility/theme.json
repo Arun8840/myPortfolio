@@ -1,9 +1,9 @@
 {
-  "primary": "#006BFF",
+  "primary": "#8E05C2",
   "secondary": "#e4e6ef",
   "background": "#ffffff",
   "button_theme": {
-    "primary": "#006BFF",
+    "primary": "#8E05C2",
     "secondary": "#e4e6ef",
     "default": "#202020"
   }

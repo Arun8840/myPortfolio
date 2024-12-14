@@ -1,30 +1,32 @@
 "use client"
 
-import React, { CSSProperties, ButtonHTMLAttributes } from "react"
+import React, { CSSProperties, AnchorHTMLAttributes } from "react"
 import { cn } from "../cn"
 import theme from "../theme.json"
+import Link from "next/link"
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonUrlProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string // Ensure href is required for the Link component
   label?: string | null
   variant?: "primary" | "secondary" | "default" | null
   size?: "small" | "medium" | "large" | null
   className?: string
   icon?: {
-    color?: string
+    color: string
     value: React.ReactNode
   }
 }
 
-function Button({
+function ButtonUrl({
+  href,
   label,
   size = "medium",
   variant = "default",
   className,
   icon,
   children,
-  disabled,
   ...otherProps
-}: ButtonProps) {
+}: ButtonUrlProps) {
   // Safely access button theme values from theme.json
   const buttonTheme: Record<string, string> = theme?.button_theme || {
     primary: "#3498db",
@@ -32,25 +34,24 @@ function Button({
     default: "#95a5a6",
   }
 
-  const variant_value = buttonTheme[variant ?? "default"]
+  const variantValue = buttonTheme[variant ?? "default"]
 
-  const isSecondary = ["secondary"]?.includes(variant ?? "")
-  const baseClass = `flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white p-3 rounded-full bg-[var(--variant)] ${
-    isSecondary && "text-[var(--primay-text-color)]"
-  } ${
-    disabled && "opacity-30 cursor-not-allowed"
-  } hover:bg-[var(--effect)] transition-all duration-150`
+  const baseClass = cn(
+    `flex items-center gap-3 font-poppins_normal font-medium bg-[var(--variant)] hover:bg-[var(--effect)] tracking-wide text-white p-3 rounded-full transition-all duration-150`,
+    className
+  )
+
   return (
-    <button
+    <Link
+      href={href} // Ensure the href prop is passed to the Link component
       {...otherProps}
       style={
         {
-          "--variant": variant_value,
-          "--effect": `${variant_value}95`,
-          "--primay-text-color": theme?.primary,
+          "--variant": variantValue,
+          "--effect": `${variantValue}95`,
         } as CSSProperties
       }
-      className={cn(baseClass, className)}
+      className={baseClass}
     >
       {icon && (
         <span
@@ -61,8 +62,8 @@ function Button({
         </span>
       )}
       {label ? <h1 className="text-center">{label}</h1> : children}
-    </button>
+    </Link>
   )
 }
 
-export default Button
+export default ButtonUrl

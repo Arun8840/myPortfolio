@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Languages",
+    "content": ["HTML", "CSS", "JavaScript (ES6+)", "TypeScript"]
+  },
+  {
+    "title": "Frameworks & Libraries",
+    "content": ["React", "Next.js", "GSAP (GreenSock Animation Platform)"]
+  },
+  {
+    "title": "Design & Tools",
+    "content": ["Figma", "Spline (3D design)", "Tailwind CSS"]
+  },
+  {
+    "title": "API Integration",
+    "content": ["RESTful APIs"]
+  },
+  {
+    "title": "Responsive Design",
+    "content": ["Mobile-first approach", "Flexbox", "CSS Grid"]
+  },
+  {
+    "title": "Version Control",
+    "content": ["Git", "GitHub"]
+  }
+]

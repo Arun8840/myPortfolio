@@ -32,7 +32,7 @@ function Homepage() {
       {/* Header */}
       <div
         ref={contentRef}
-        className="container flex flex-col gap-4 lg:gap-9 p-5  mx-auto"
+        className="container flex flex-col gap-4 lg:gap-9 p-2  mx-auto z-10"
       >
         <Label className="text-white font-semibold text-7xl">Im arun</Label>
 
@@ -44,7 +44,7 @@ function Homepage() {
 
         <Button
           icon={{ value: <ArrowRight />, color: "white" }}
-          varient={"primary"}
+          variant={"primary"}
           className="size-fit"
         >
           Let&apos;s talk
