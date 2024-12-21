@@ -9,7 +9,7 @@ interface ButtonUrlProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string // Ensure href is required for the Link component
   label?: string | null
   variant?: "primary" | "secondary" | "default" | null
-  size?: "small" | "medium" | "large" | null
+  size?: "small" | "medium" | "large" | undefined
   className?: string
   icon?: {
     color: string
@@ -34,12 +34,22 @@ function ButtonUrl({
     default: "#95a5a6",
   }
 
-  const variantValue = buttonTheme[variant ?? "default"]
+  const buttonSize = {
+    small: "text-sm p-2 size-fit",
+    medium: "p-2 size-fit",
+    large: "p-4",
+  }
+  const currectSize = buttonSize[size]
+  const variant_value = buttonTheme[variant ?? "default"]
 
-  const baseClass = cn(
-    `flex items-center gap-3 font-poppins_normal font-medium bg-[var(--variant)] hover:bg-[var(--effect)] tracking-wide text-white p-3 rounded-full transition-all duration-150`,
-    className
-  )
+  const isSecondary = ["secondary"]?.includes(variant ?? "")
+  const baseClass = [
+    currectSize,
+    "flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white rounded-full bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
+    isSecondary && "text-[var(--primay-text-color)]",
+  ]
+    .filter(Boolean)
+    .join(" ")
 
   return (
     <Link
@@ -47,8 +57,8 @@ function ButtonUrl({
       {...otherProps}
       style={
         {
-          "--variant": variantValue,
-          "--effect": `${variantValue}95`,
+          "--variant": variant_value,
+          "--effect": `${variant_value}95`,
         } as CSSProperties
       }
       className={baseClass}

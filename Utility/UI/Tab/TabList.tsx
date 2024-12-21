@@ -4,10 +4,18 @@ import theme from "../../theme.json"
 
 interface TabListProps extends HTMLAttributes<HTMLUListElement> {
   children: React.ReactNode
+  type?: "default" | "outlined" | "filled"
 }
-function TabList({ children, className, ...otherProps }: TabListProps) {
-  const baseClass =
-    "p-2 flex bg-stone-500/10 rounded-lg items-center flex-wrap justify-evenly  gap-2"
+function TabList({
+  children,
+  className,
+  type = "default",
+  ...otherProps
+}: TabListProps) {
+  const isOutlined = type !== "outlined"
+  const baseClass = `${
+    isOutlined && "p-2"
+  } flex bg-stone-500/10 rounded-lg items-center flex-wrap justify-evenly  gap-2`
 
   const { primary } = theme
   const styleVariables = {
@@ -21,7 +29,7 @@ function TabList({ children, className, ...otherProps }: TabListProps) {
     >
       {React.Children.map(children, (child: any) => {
         if (child?.type?.displayName === "TabTrigger") {
-          return React.cloneElement(child)
+          return React.cloneElement(child, { type })
         }
         return null
       })}
