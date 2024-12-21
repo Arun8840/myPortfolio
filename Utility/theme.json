@@ -1,10 +1,11 @@
 {
-  "primary": "#1230AE",
-  "secondary": "#e4e6ef",
+  "primary": "#810CA8",
+  "secondary": "#EEF7FF",
   "background": "#ffffff",
+  "cardBg": "#35155D",
   "button_theme": {
-    "primary": "#1230AE",
-    "secondary": "#e4e6ef",
+    "primary": "#810CA8",
+    "secondary": "#EEF7FF",
     "default": "#202020"
   }
 }

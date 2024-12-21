@@ -7,7 +7,7 @@ import theme from "../theme.json"
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string | null
   variant?: "primary" | "secondary" | "default" | null
-  size?: "small" | "medium" | "large" | null
+  size?: "small" | "medium" | "large" | undefined
   className?: string
   icon?: {
     color?: string
@@ -31,15 +31,23 @@ function Button({
     secondary: "#2ecc71",
     default: "#95a5a6",
   }
-
+  const buttonSize = {
+    small: "text-sm p-2 size-fit",
+    medium: "p-2 size-fit",
+    large: "p-4",
+  }
+  const currectSize = buttonSize[size]
   const variant_value = buttonTheme[variant ?? "default"]
 
   const isSecondary = ["secondary"]?.includes(variant ?? "")
-  const baseClass = `flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white p-3 rounded-full bg-[var(--variant)] ${
-    isSecondary && "text-[var(--primay-text-color)]"
-  } ${
-    disabled && "opacity-30 cursor-not-allowed"
-  } hover:bg-[var(--effect)] transition-all duration-150`
+  const baseClass = [
+    currectSize,
+    "flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white rounded-full bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
+    disabled && "opacity-30 cursor-not-allowed",
+    isSecondary && "text-[var(--primay-text-color)]",
+  ]
+    .filter(Boolean)
+    .join(" ")
   return (
     <button
       {...otherProps}

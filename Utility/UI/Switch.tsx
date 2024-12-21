@@ -37,7 +37,7 @@ function Switch({
   const variantValue = buttonTheme[variant ?? "default"]
   const isSecondary = ["secondary"]?.includes(variant ?? "")
   const baseClass = cn(
-    `flex items-center gap-3 font-poppins_normal font-medium bg-[var(--variant)] hover:bg-[var(--effect)] tracking-wide text-white p-1 rounded-full transition-all duration-150 min-w-14 ${
+    `flex items-center gap-3 font-poppins_normal font-medium bg-[var(--variant)] hover:bg-[var(--effect)] tracking-wide text-white p-1 rounded-full transition-all duration-150 w-12 ${
       disabled && "opacity-30 cursor-not-allowed"
     }`,
     className
@@ -69,7 +69,7 @@ function Switch({
       <div
         className={`bg-white ${
           isSecondary && "peer-checked:bg-[var(--primay-pointer-color)]"
-        } size-6 grid place-items-center rounded-full peer-checked:translate-x-6 transition-all duration-150`}
+        } size-5 grid place-items-center rounded-full peer-checked:translate-x-5 transition-all duration-150`}
       >
         {icon && <span style={{ color: icon.color }}>{icon.value}</span>}
       </div>
