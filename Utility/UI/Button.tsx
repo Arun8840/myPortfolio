@@ -42,7 +42,7 @@ function Button({
   const isSecondary = ["secondary"]?.includes(variant ?? "")
   const baseClass = [
     currectSize,
-    "flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white rounded-full bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
+    "flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white rounded-lg bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
     disabled && "opacity-30 cursor-not-allowed",
     isSecondary && "text-[var(--primay-text-color)]",
   ]
