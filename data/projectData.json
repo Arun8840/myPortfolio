@@ -1,14 +1,19 @@
 [
   {
-    "id": 1,
-    "active": false,
-    "title": "E-Commerce Platform",
+    "id": 6,
+    "active": true,
+    "title": "Static Company Website",
     "description": [
-      "Developed a responsive e-commerce platform using React and Next.js.",
-      "Implemented dynamic product filters and sorting for an improved user experience.",
-      "Integrated payment gateway using Stripe API for secure transactions."
+      "Developed a fully static company website using React and Next.js for high performance and SEO optimization.",
+      "Designed a clean and professional layout to effectively showcase company services and team profiles.",
+      "Implemented responsive design using Tailwind CSS to ensure compatibility across all devices.",
+      "Integrated static content management using Markdown for easy updates by non-technical team members.",
+      "Deployed the site on Vercel for seamless hosting and fast load times.",
+      "Enhanced site accessibility by adhering to WCAG standards for inclusive user experience."
     ],
-    "componentType": "Ecommerce"
+    "path": "https://zetta-stackpvt.vercel.app/?vercelToolbarCode=TBtdT1EE3gD_D0n",
+    "openExternal": true,
+    "image": "/images/companySiteImage.png"
   },
   {
     "id": 2,
@@ -18,26 +23,54 @@
       "Built a personal portfolio website to showcase projects and skills.",
       "Utilized Tailwind CSS for modern design and responsiveness.",
       "Deployed on Vercel with custom domain integration."
-    ]
+    ],
+    "image": "/images/PorfolioImage.png",
+    "path": "https://my-portfolio-mu-one-77.vercel.app/",
+    "openExternal": true
   },
+
   {
     "id": 3,
     "active": true,
     "title": "Expense Tracker Mobile App",
     "description": [
       "Developed a cross-platform mobile app for tracking daily expenses using React Native. Implemented a user-friendly interface with NativeWind for styling components. Utilized Zustand for efficient state management, enabling seamless handling of application state. Added features for category-based expense tracking and visual analytics using charts."
-    ]
-  },
-  {
-    "id": 4,
-    "active": false,
-    "title": "Todo App with Drag and Drop",
-    "description": [
-      "Built a todo app with drag-and-drop functionality using `react-dnd` in React.",
-      "Implemented local storage for saving tasks and their completion status.",
-      "Created a user-friendly interface with dynamic task filtering (e.g., completed, pending).",
-      "Added features for editing, deleting, and reordering tasks with drag-and-drop.",
-      "Utilized `react-dnd` to allow users to reorder tasks by dragging them within the list."
+    ],
+    "path": "/projects/Mobile",
+    "componentType": "Mobile",
+    "screens": [
+      {
+        "name": "Landing Screen",
+        "image": "/images/LandingScreen.png"
+      },
+      {
+        "name": "Dashboard Screen",
+        "image": "/images/DashboardScreen.png"
+      },
+      {
+        "name": "Category Screen",
+        "image": "/images/CategoryScreen.png"
+      },
+      {
+        "name": "Reminder Screen",
+        "image": "/images/ReminderScreen.png"
+      },
+      {
+        "name": "Account Screen",
+        "image": "/images/AccountScreen.png"
+      },
+      {
+        "name": "Budget Screen",
+        "image": "/images/BudgetScreen.png"
+      },
+      {
+        "name": "NewCreate Screen",
+        "image": "/images/NewCreateScreen.png"
+      },
+      {
+        "name": "Profile Screen",
+        "image": "/images/ProfileScreen.png"
+      }
     ]
   },
   {
@@ -55,18 +88,26 @@
     "componentType": "PackageComponents"
   },
   {
-    "id": 6,
-    "active": true,
-    "title": "Static Company Website",
+    "id": 4,
+    "active": false,
+    "title": "Todo App with Drag and Drop",
     "description": [
-      "Developed a fully static company website using React and Next.js for high performance and SEO optimization.",
-      "Designed a clean and professional layout to effectively showcase company services and team profiles.",
-      "Implemented responsive design using Tailwind CSS to ensure compatibility across all devices.",
-      "Integrated static content management using Markdown for easy updates by non-technical team members.",
-      "Deployed the site on Vercel for seamless hosting and fast load times.",
-      "Enhanced site accessibility by adhering to WCAG standards for inclusive user experience."
+      "Built a todo app with drag-and-drop functionality using `react-dnd` in React.",
+      "Implemented local storage for saving tasks and their completion status.",
+      "Created a user-friendly interface with dynamic task filtering (e.g., completed, pending).",
+      "Added features for editing, deleting, and reordering tasks with drag-and-drop.",
+      "Utilized `react-dnd` to allow users to reorder tasks by dragging them within the list."
+    ]
+  },
+  {
+    "id": 1,
+    "active": false,
+    "title": "E-Commerce Platform",
+    "description": [
+      "Developed a responsive e-commerce platform using React and Next.js.",
+      "Implemented dynamic product filters and sorting for an improved user experience.",
+      "Integrated payment gateway using Stripe API for secure transactions."
     ],
-    "path": "https://zetta-stackpvt.vercel.app/?vercelToolbarCode=TBtdT1EE3gD_D0n",
-    "openExternal": true
+    "componentType": "Ecommerce"
   }
 ]

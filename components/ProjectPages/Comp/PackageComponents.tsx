@@ -179,7 +179,7 @@ function PackageComponents() {
         <div className="flex flex-wrap gap-3">
           <Chips variant="default" label="small" chipSize="small" />
           <Chips variant="default" label="Medium" chipSize="medium" />
-          <Chips variant="outlined" label="Large Medium" chipSize="large" />
+          <Chips variant="outlined" label="Large" chipSize="large" />
         </div>
       </CardContainer>
       {/* //TODO INPUT */}

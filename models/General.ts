@@ -6,6 +6,8 @@ export interface ProjectTypes {
   path?: string | null
   openExternal?: boolean
   componentType?: string
+  image?: string | null | undefined
+  screens?: { name: string; image: string }[]
 }
 
 export interface SkillTypes {

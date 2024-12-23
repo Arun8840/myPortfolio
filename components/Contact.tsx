@@ -2,6 +2,7 @@
 import { sendMail } from "@/Utility/actions/actions"
 import Button from "@/Utility/UI/Button"
 import CardContainer from "@/Utility/UI/CardContainer"
+import TextBox from "@/Utility/UI/Input/TextBox"
 import {
   Download,
   Linkedin,
@@ -37,31 +38,9 @@ function Contact() {
             </div>
 
             <div className="flex flex-col gap-3 flex-1">
-              <label
-                htmlFor="name"
-                className="text-white block font-mono_normal"
-              >
-                Name
-              </label>
-              <input
-                required
-                name="name"
-                type="text"
-                className="block p-3 text-white bg-inherit border rounded border-stone-600 w-full"
-              />
+              <TextBox required name="name" label="Name" />
 
-              <label
-                htmlFor="email"
-                className="text-white block font-mono_normal"
-              >
-                Email
-              </label>
-              <input
-                required
-                name="email"
-                type="text"
-                className="block p-3 text-white bg-inherit border rounded border-stone-600 w-full"
-              />
+              <TextBox required name="email" label="Email" />
               <label
                 htmlFor="message"
                 className="text-white block font-mono_normal"
@@ -71,7 +50,7 @@ function Contact() {
               <textarea
                 required
                 name="message"
-                className="block p-3 text-white bg-inherit border rounded border-stone-600 w-full"
+                className="block p-3 text-white bg-inherit border border-stone-700 border-opacity-50 rounded w-full"
               />
               <div className="pt-3">
                 <Button
