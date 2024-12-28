@@ -12,6 +12,17 @@ import {
 } from "@/Utility/UI/Dropdown"
 import Splitter from "@/Utility/UI/Dropdown/Splitter"
 import TextBox from "@/Utility/UI/Input/TextBox"
+import SheetContainer from "@/Utility/UI/Sheet/SheetContainer"
+import SheetContent from "@/Utility/UI/Sheet/SheetContent"
+import SheetTrigger from "@/Utility/UI/Sheet/SheetTrigger"
+import {
+  SidebarContainer,
+  SidebarGroup,
+  SidebarHeader,
+  SidebarItem,
+  SidebarTrigger,
+} from "@/Utility/UI/Sidebar"
+
 import Skeleton from "@/Utility/UI/Skeleton"
 import Switch from "@/Utility/UI/Switch"
 import { TabContainer, TabList, TabRender, TabTrigger } from "@/Utility/UI/Tab"
@@ -25,7 +36,6 @@ import {
 import { TimeLineContainer, TimelineItems } from "@/Utility/UI/timeLine"
 import {
   ArrowRight,
-  Bell,
   CircleDollarSign,
   KeyRound,
   LinkIcon,
@@ -34,15 +44,22 @@ import {
   Plus,
   PlusIcon,
   Send,
-  Settings,
   Settings2,
   Shield,
   Sun,
-  User,
   UserRound,
   Users,
   UsersRound,
+  Settings,
+  User,
+  Mail,
+  Bell,
+  Home,
+  LayoutDashboardIcon,
+  ChartAreaIcon,
+  GitCompareArrows,
 } from "lucide-react"
+
 import React from "react"
 
 interface MenuTypes {
@@ -131,6 +148,61 @@ function PackageComponents() {
     "amount",
     "actions",
   ]
+  const groupedSideMenuItems = [
+    {
+      category: "Main",
+      icon: <LayoutDashboardIcon size={18} color="#FF5733" />,
+      items: [
+        {
+          id: 1,
+          label: "Dashboard",
+          icon: <Home size={18} color="#FF5733" />,
+          route: "/dashboard",
+          isActive: false,
+        },
+        {
+          id: 3,
+          label: "Profile",
+          icon: <UserRound size={18} color="#8E44AD" />,
+          route: "/profile",
+          isActive: false,
+        },
+      ],
+    },
+    {
+      category: "Communication",
+      icon: <ChartAreaIcon size={18} color="#F1C40F" />,
+      items: [
+        {
+          id: 4,
+          label: "Messages",
+          icon: <Mail size={18} color="#F1C40F" />,
+          route: "/messages",
+          isActive: false,
+        },
+        {
+          id: 5,
+          label: "Notifications",
+          icon: <Bell size={18} color="#27AE60" />,
+          route: "/notifications",
+          isActive: false,
+        },
+      ],
+    },
+    {
+      category: "Preferences",
+      icon: <GitCompareArrows size={18} color="#33B5FF" />,
+      items: [
+        {
+          id: 2,
+          label: "Settings",
+          icon: <Settings size={18} color="#33B5FF" />,
+          route: "/settings",
+          isActive: false,
+        },
+      ],
+    },
+  ]
 
   const tableData: {
     Name: string
@@ -171,6 +243,170 @@ function PackageComponents() {
 
   return (
     <section className="pt-3 grid lg:grid-cols-2  gap-3">
+      <CardContainer className="col-span-full p-1">
+        <section className="min-h-screen size-full rounded flex">
+          <SidebarContainer>
+            <SidebarTrigger />
+            <SidebarHeader icon={<UserRound className="text-yellow-500" />}>
+              <h1>Arun Prakash</h1>
+            </SidebarHeader>
+            {groupedSideMenuItems?.map((values) => {
+              return (
+                <SidebarGroup
+                  title={values?.category}
+                  key={values?.category}
+                  icon={values?.icon}
+                  header={values?.category}
+                >
+                  {values?.items?.map((childValues) => {
+                    return (
+                      <SidebarItem
+                        icon={childValues?.icon}
+                        key={childValues?.id}
+                        title={childValues?.label}
+                      >
+                        {childValues?.label}
+                      </SidebarItem>
+                    )
+                  })}
+                </SidebarGroup>
+              )
+            })}
+          </SidebarContainer>
+          <main className="flex-1 p-1.5">
+            {/* //todo table */}
+            <TableContainer className="border-opacity-35">
+              {/* //todo other events experimental*/}
+              <div className="flex justify-between gap-3 items-center p-2">
+                <h1 className="text-white font-mono_bold font-semibold text-lg flex items-center gap-3">
+                  <UserRound /> Users
+                </h1>
+                <div className="flex justify-end items-center gap-2  flex-1">
+                  <input
+                    placeholder="Filter..."
+                    type="text"
+                    className="bg-inherit outline-none focus:ring-2 ring-inset ring-stone-600 border border-stone-700 border-opacity-50 rounded-lg p-2 w-1/2 text-white"
+                  />
+
+                  <DropDownContainer>
+                    <DropDownTrigger className="text-sm">
+                      Show by
+                    </DropDownTrigger>
+                    <DropDownContent className="w-40">
+                      <DropDownItem>Name</DropDownItem>
+                      <DropDownItem>Status</DropDownItem>
+                      <DropDownItem>Email</DropDownItem>
+                      <DropDownItem>Active</DropDownItem>
+                      <DropDownItem>Amount</DropDownItem>
+                    </DropDownContent>
+                  </DropDownContainer>
+                  {/* //TODO CREATE MODEL SHEET */}
+                  <SheetContainer>
+                    <SheetTrigger type="button" variant={"primary"}>
+                      <Plus size={18} />
+                      Create User
+                    </SheetTrigger>
+                    <SheetContent header={"Create User"}>
+                      <div className="p-2">
+                        <TextBox type="text" required label="UserName" />
+                        <TextBox type="text" required label="Email" />
+                        <TextBox type="text" required label="Password" />
+                      </div>
+                    </SheetContent>
+                  </SheetContainer>
+                </div>
+              </div>
+              <Table>
+                {tableHeader?.map((headers) => {
+                  return <TableHead key={headers}>{headers}</TableHead>
+                })}
+                {/* table body */}
+                {tableData?.map((datas) => {
+                  return (
+                    <TableRow key={datas?.Name}>
+                      <TableCell>
+                        <p className="line-clamp-1">{datas?.Name}</p>
+                      </TableCell>
+                      <TableCell>
+                        <div>
+                          <Switch defaultChecked={datas?.status} />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <p className="line-clamp-1">{datas?.email}</p>
+                      </TableCell>
+                      <TableCell>
+                        <Chips
+                          disabled
+                          variant="default"
+                          chipSize="small"
+                          defaultChecked={datas?.active}
+                          label={datas?.active ? "active" : "Inactive"}
+                        />
+                      </TableCell>
+                      <TableCell>{datas?.amount}</TableCell>
+                      <TableCell>
+                        <DropDownContainer>
+                          <DropDownTrigger>More</DropDownTrigger>
+                          <DropDownContent className="w-40">
+                            <DropDownItem>Edit</DropDownItem>
+                            <DropDownItem>Copy</DropDownItem>
+                            <DropDownItem>Delete</DropDownItem>
+                          </DropDownContent>
+                        </DropDownContainer>
+                      </TableCell>
+                    </TableRow>
+                  )
+                })}
+              </Table>
+            </TableContainer>
+
+            <div className="grid lg:grid-cols-2 gap-3 mt-2">
+              {/* //TODO DEFAULT CARD */}
+              <CardContainer>
+                <h1 className="text-white font-mono_normal font-semibold pb-2">
+                  Default Card
+                </h1>
+                <p className="text-white font-mono_normal py-2">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae assumenda a
+                </p>
+                <div className="flex justify-end">
+                  <Button
+                    label={"Open"}
+                    variant={"primary"}
+                    icon={{
+                      color: "white",
+                      value: <ArrowRight size={20} />,
+                    }}
+                  />
+                </div>
+              </CardContainer>
+
+              {/*//TODO ANIMATED CARD */}
+              <CardContainer animate>
+                <h1 className="text-white font-mono_normal font-semibold pb-2 capitalize">
+                  Hover animated card
+                </h1>
+                <p className="text-white font-mono_normal py-2">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae assumenda
+                </p>
+                <div className="flex justify-end">
+                  <Button
+                    label={"Open"}
+                    variant={"primary"}
+                    icon={{
+                      color: "white",
+                      value: <ArrowRight size={20} />,
+                    }}
+                  />
+                </div>
+              </CardContainer>
+            </div>
+          </main>
+        </section>
+      </CardContainer>
       {/* //TODO CHIPS */}
       <CardContainer>
         <h1 className="text-white font-mono_normal pb-5 font-semibold capitalize">
@@ -182,88 +418,7 @@ function PackageComponents() {
           <Chips variant="outlined" label="Large" chipSize="large" />
         </div>
       </CardContainer>
-      {/* //TODO INPUT */}
-      <CardContainer>
-        <h1 className="text-white font-mono_normal pb-5 font-semibold capitalize">
-          Input component
-        </h1>
-        <TextBox type="text" required label="UserName" />
-      </CardContainer>
-      {/* //TODO TABLE */}
-      <CardContainer className="col-span-full">
-        <h1 className="text-white font-mono_normal pb-5 font-semibold capitalize">
-          Table component
-        </h1>
-        {/* //todo table */}
-        <TableContainer>
-          {/* //todo other events experimental*/}
-          <div className="flex justify-between gap-3 items-center p-2">
-            <h1 className="text-white font-mono_bold font-semibold text-lg flex items-center gap-3">
-              <UserRound /> Users
-            </h1>
-            <div className="flex justify-end items-center gap-2  flex-1">
-              <input
-                placeholder="Filter..."
-                type="text"
-                className="bg-inherit outline-none focus:ring-2 ring-inset ring-stone-600 border border-stone-700 border-opacity-50 rounded-lg p-2 w-1/2 text-white"
-              />
-              <DropDownContainer>
-                <DropDownTrigger>Show by</DropDownTrigger>
-                <DropDownContent className="w-40">
-                  <DropDownItem>Name</DropDownItem>
-                  <DropDownItem>Status</DropDownItem>
-                  <DropDownItem>Email</DropDownItem>
-                  <DropDownItem>Active</DropDownItem>
-                  <DropDownItem>Amount</DropDownItem>
-                </DropDownContent>
-              </DropDownContainer>
-            </div>
-          </div>
-          <Table>
-            {tableHeader?.map((headers) => {
-              return <TableHead key={headers}>{headers}</TableHead>
-            })}
-            {/* table body */}
-            {tableData?.map((datas) => {
-              return (
-                <TableRow key={datas?.Name}>
-                  <TableCell>
-                    <p className="line-clamp-1">{datas?.Name}</p>
-                  </TableCell>
-                  <TableCell>
-                    <div>
-                      <Switch defaultChecked={datas?.status} />
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <p className="line-clamp-1">{datas?.email}</p>
-                  </TableCell>
-                  <TableCell>
-                    <Chips
-                      disabled
-                      variant="outlined"
-                      chipSize="small"
-                      defaultChecked={datas?.active}
-                      label={datas?.active ? "active" : "Inactive"}
-                    />
-                  </TableCell>
-                  <TableCell>{datas?.amount}</TableCell>
-                  <TableCell>
-                    <DropDownContainer>
-                      <DropDownTrigger>More</DropDownTrigger>
-                      <DropDownContent className="w-40">
-                        <DropDownItem>Edit</DropDownItem>
-                        <DropDownItem>Copy</DropDownItem>
-                        <DropDownItem>Delete</DropDownItem>
-                      </DropDownContent>
-                    </DropDownContainer>
-                  </TableCell>
-                </TableRow>
-              )
-            })}
-          </Table>
-        </TableContainer>
-      </CardContainer>
+
       {/* //todo TAB */}
       <CardContainer className="col-span-full">
         <h1 className="text-white font-mono_normal pb-5 font-semibold capitalize">
@@ -457,49 +612,6 @@ function PackageComponents() {
         </div>
       </CardContainer>
 
-      {/* //TODO DEFAULT CARD */}
-      <CardContainer>
-        <h1 className="text-white font-mono_normal font-semibold pb-2">
-          Default Card
-        </h1>
-        <p className="text-white font-mono_normal py-2">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae
-          assumenda a quo aut optio ea,ipsum dolor sit amet consectetur
-          adipisicing elit. Beatae assumenda a quo aut optio ea,
-        </p>
-        <div className="flex justify-end">
-          <Button
-            label={"Open"}
-            variant={"primary"}
-            icon={{
-              color: "white",
-              value: <ArrowRight size={20} />,
-            }}
-          />
-        </div>
-      </CardContainer>
-
-      {/*//TODO ANIMATED CARD */}
-      <CardContainer animate>
-        <h1 className="text-white font-mono_normal font-semibold pb-2 capitalize">
-          Hover animated card
-        </h1>
-        <p className="text-white font-mono_normal py-2">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae
-          assumenda a quo aut optio ea,ipsum dolor sit amet consectetur
-          adipisicing elit. Beatae assumenda a quo aut optio ea,
-        </p>
-        <div className="flex justify-end">
-          <Button
-            label={"Open"}
-            variant={"primary"}
-            icon={{
-              color: "white",
-              value: <ArrowRight size={20} />,
-            }}
-          />
-        </div>
-      </CardContainer>
       {/* //TODO TIMELINE */}
       <CardContainer>
         <h1 className="text-white font-mono_normal pb-5 font-semibold capitalize">
