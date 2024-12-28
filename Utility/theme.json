@@ -7,5 +7,10 @@
     "primary": "#810CA8",
     "secondary": "#EEF7FF",
     "default": "#202020"
+  },
+  "sidebar_theme": {
+    "background": "#35155D30",
+    "selected": "#35155D",
+    "textcolor": null
   }
 }

@@ -12,7 +12,7 @@ function TableCell({
   ...otherHeaderProps
 }: TableCellProp) {
   const defaultClass =
-    "text-white text-start text-sm font-poppins_normal font-medium p-4"
+    "text-white text-start text-sm font-poppins_normal font-medium px-4 py-2"
   return (
     <td {...otherHeaderProps} className={cn(defaultClass, className)}>
       {label ? label : children}

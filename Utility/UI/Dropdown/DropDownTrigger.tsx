@@ -12,7 +12,7 @@ function DropDownTrigger({
   ...otherProps
 }: Dropdown_TriProp) {
   const { isOpenOption, setOpenOptions } = useDropdownContext()
-  const defaultClass = `hover:bg-[var(--variant)]  border border-[var(--variant)] transition-all duration-150 rounded-lg flex items-center justify-between gap-3 text-white font-poppins_normal px-4 py-2`
+  const defaultClass = `hover:bg-[var(--variant)]  border border-[var(--variant)] transition-all duration-150 rounded-lg  gap-3 text-white font-poppins_normal px-4 py-2`
   return (
     <button
       onClick={() => setOpenOptions(!isOpenOption)}
