@@ -10,7 +10,7 @@ function TableContainer({
   ...otherprops
 }: ContainerProps) {
   const defaultClass =
-    "border border-stone-700 border-opacity-50 rounded p-4 bg-inherit"
+    "border border-stone-700 border-opacity-50 rounded-sm p-4 bg-inherit"
   return (
     <section {...otherprops} className={cn(defaultClass, className)}>
       {children}

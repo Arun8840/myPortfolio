@@ -14,10 +14,10 @@ function SidebarItem({
   ...otherProps
 }: ListItemProps) {
   const baseClass =
-    "rounded p-1 flex items-center gap-2 cursor-pointer hover:bg-[var(--selected-color)] transition-colors duration-150"
+    "rounded-sm p-1 flex items-center gap-2 cursor-pointer hover:bg-[var(--selected-color)] transition-colors duration-150"
   return (
     <li className={cn(baseClass, className)} {...otherProps}>
-      {icon && <div className="bg-white/5 p-2 rounded">{icon}</div>}
+      {icon && <div className="bg-white/5 p-2 rounded-sm">{icon}</div>}
       {value ? value : children}
     </li>
   )

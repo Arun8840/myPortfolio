@@ -16,7 +16,7 @@ function DropDownGroupTitle({
 }: ItemProps) {
   const { setOpenOptions } = useDropdownContext()
   const baseClass =
-    "text-white flex items-center gap-2 hover:bg-[var(--variant)] transition-colors duration-150 px-2 py-1.5 rounded cursor-pointer capitalize tracking-wide"
+    "text-white flex items-center gap-2 hover:bg-[var(--variant)] transition-colors duration-150 px-2 py-1.5 rounded-sm cursor-pointer capitalize tracking-wide"
 
   return (
     <li

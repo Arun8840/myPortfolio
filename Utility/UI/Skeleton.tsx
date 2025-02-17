@@ -11,7 +11,7 @@ const Skeleton: React.FC<SkeletonProps> = ({ className, ...otherProps }) => {
       className={cn(
         baseClass,
         className,
-        "bg-gradient-to-l from-[#242427] to-[#18181b] animate-pulse"
+        "bg-linear-to-l from-[#242427] to-[#18181b] animate-pulse"
       )}
     ></div>
   )

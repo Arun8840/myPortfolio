@@ -23,7 +23,7 @@ function Projects() {
             >
               {/* Display the image if available */}
               {items?.image && (
-                <div className="w-[200px] h-fit rounded-lg overflow-hidden flex-shrink-0">
+                <div className="w-[200px] h-fit rounded-lg overflow-hidden shrink-0">
                   <Image
                     src={items?.image}
                     className="object-contain"

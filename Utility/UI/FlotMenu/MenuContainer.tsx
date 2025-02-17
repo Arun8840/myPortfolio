@@ -79,7 +79,7 @@ const MenuContainer = ({ children, defaultOpen = false }: MenuProp) => {
       {/* //todo Render MenuList */}
       <div
         ref={List_container}
-        className="min-w-[350px] max-w-[400px] absolute  top-0 right-0 bottom-0 z-[10] h-full opacity-0 hidden"
+        className="min-w-[350px] max-w-[400px] absolute  top-0 right-0 bottom-0 z-10 h-full opacity-0 hidden"
       >
         {defaultOpen &&
           React.Children.map(children, (child: any) => {

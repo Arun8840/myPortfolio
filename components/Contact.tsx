@@ -50,7 +50,7 @@ function Contact() {
               <textarea
                 required
                 name="message"
-                className="block p-3 text-white bg-inherit border border-stone-700 border-opacity-50 rounded w-full"
+                className="block p-3 text-white bg-inherit border border-stone-700 border-opacity-50 rounded-sm w-full"
               />
               <div className="pt-3">
                 <Button

@@ -244,7 +244,7 @@ function PackageComponents() {
   return (
     <section className="pt-3 grid lg:grid-cols-2  gap-3">
       <CardContainer className="col-span-full p-1">
-        <section className="min-h-screen size-full rounded flex">
+        <section className="min-h-screen size-full rounded-sm flex">
           <SidebarContainer>
             <SidebarTrigger />
             <SidebarHeader icon={<UserRound className="text-yellow-500" />}>
@@ -285,7 +285,7 @@ function PackageComponents() {
                   <input
                     placeholder="Filter..."
                     type="text"
-                    className="bg-inherit outline-none focus:ring-2 ring-inset ring-stone-600 border border-stone-700 border-opacity-50 rounded-lg p-2 w-1/2 text-white"
+                    className="bg-inherit outline-hidden focus:ring-2 ring-inset ring-stone-600 border border-stone-700 border-opacity-50 rounded-lg p-2 w-1/2 text-white"
                   />
 
                   <DropDownContainer>
