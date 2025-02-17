@@ -27,8 +27,8 @@ function TabTrigger({
     outlined: `border-b-4 p-2 ${
       isActive ? "border-[var(--active-color)]" : "border-transparent"
     }`,
-    filled: `${isActive && "bg-[var(--active-color)]"} rounded p-1`,
-    default: `${isActive && "bg-[var(--active-color)]"} rounded p-1`,
+    filled: `${isActive && "bg-[var(--active-color)]"} rounded-sm p-1`,
+    default: `${isActive && "bg-[var(--active-color)]"} rounded-sm p-1`,
   }
 
   const currentType = styleTypes[type || "default"]

@@ -9,7 +9,7 @@ function StickyContainer({
   className,
   ...otherProp
 }: StickySectionProp) {
-  const baseClass = "p-2 size-fit rounded sticky top-0"
+  const baseClass = "p-2 size-fit rounded-sm sticky top-0"
   return (
     <ul {...otherProp} className={cn(baseClass, className)}>
       {children}

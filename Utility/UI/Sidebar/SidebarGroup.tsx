@@ -26,9 +26,9 @@ function SidebarGroup({
         id={header ?? "groupheader"}
         className="hidden peer/groupedMenu"
       />
-      <dt className="flex items-center justify-between p-1 gap-2 rounded">
+      <dt className="flex items-center justify-between p-1 gap-2 rounded-sm">
         <div className="flex items-center gap-2">
-          {icon && <div className="bg-white/5 p-2 rounded">{icon}</div>}
+          {icon && <div className="bg-white/5 p-2 rounded-sm">{icon}</div>}
           {header}
         </div>
 
