@@ -1,63 +1,39 @@
-"use client"
-
-import React, { useRef } from "react"
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
-import Spline from "@splinetool/react-spline"
-import Label from "@/Utility/UI/Label"
+import React from "react"
+import { Header } from "./ui/Header"
 import Button from "@/Utility/UI/Button"
-import { ArrowRight } from "lucide-react"
-gsap.registerPlugin(useGSAP)
+import { Sparkles } from "lucide-react"
+import Image from "next/image"
 
-function Homepage() {
-  const contentRef = useRef<HTMLDivElement>(null)
-  const splineRef = useRef<HTMLDivElement>(null)
-  useGSAP(() => {
-    gsap.fromTo(
-      [contentRef?.current, splineRef?.current],
-      {
-        opacity: 0,
-      },
-      {
-        stagger: 0.2,
-        delay: 0.5,
-        opacity: 1,
-        duration: 1,
-        ease: "expo.inOut",
-      }
-    )
-  })
+function Home() {
   return (
-    <section className="min-h-screen flex justify-start p-10 lg:overflow-hidden">
-      {/* Header */}
-      <div
-        ref={contentRef}
-        className="container flex flex-col gap-4 lg:gap-9 p-2  mx-auto z-10"
-      >
-        <Label className="text-white font-semibold text-7xl">Im arun</Label>
-
-        <p className=" text-lg font-mono_bold text-white tracking-wide w-full lg:w-1/2">
+    <section className="min-h-screen  p-2 lg:p-5 grid place-items-center">
+      <div className="container flex flex-col items-center gap-3 md:gap-6">
+        <div className="size-24 rounded-full overflow-hidden bg-white">
+          <Image
+            src={"/Banner.png"}
+            width={200}
+            height={200}
+            objectFit="contain"
+            alt="banner"
+          />
+        </div>
+        <Header className="text-center text-2xl md:text-6xl leading-relaxed">
+          Building Scalable <br /> Interactive Web Experiences
+        </Header>
+        <p className="md:w-1/2 mx-auto text-center font-poppins-normal text-neutral-700">
           A creative Frontend Developer specializing in React, Next.js, and
           modern JavaScript, building stunning and responsive web experiences.
           Let bring your vision to life with clean code and innovative designs.
         </p>
-
-        <Button
-          icon={{ value: <ArrowRight />, color: "white" }}
-          variant={"primary"}
-          className="size-fit"
-        >
-          Let&apos;s talk
-        </Button>
+        <div className="flex justify-center">
+          <Button size="large" className="rounded-full">
+            Let&apos;s Work Together
+            <Sparkles size={18} />
+          </Button>
+        </div>
       </div>
-
-      <Spline
-        ref={splineRef}
-        className="absolute size-full inset-0 hidden lg:block"
-        scene="https://prod.spline.design/WhUkzzsLbJBVTQEI/scene.splinecode"
-      />
     </section>
   )
 }
 
-export default Homepage
+export default Home

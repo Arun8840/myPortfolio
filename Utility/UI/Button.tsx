@@ -18,7 +18,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 function Button({
   label,
   size = "medium",
-  variant = "default",
+  variant = "primary",
   className,
   icon,
   children,
@@ -39,12 +39,10 @@ function Button({
   const currectSize = buttonSize[size]
   const variant_value = buttonTheme[variant ?? "default"]
 
-  const isSecondary = ["secondary"]?.includes(variant ?? "")
   const baseClass = [
     currectSize,
-    "flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white rounded-lg bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
+    "flex items-center gap-3 font-poppins-normal font-semibold rounded-lg bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
     disabled && "opacity-30 cursor-not-allowed",
-    isSecondary && "text-[var(--primay-text-color)]",
   ]
     .filter(Boolean)
     .join(" ")
@@ -54,7 +52,7 @@ function Button({
       style={
         {
           "--variant": variant_value,
-          "--effect": `${variant_value}95`,
+          "--effect": `${variant_value}`,
           "--primay-text-color": theme?.primary,
         } as CSSProperties
       }

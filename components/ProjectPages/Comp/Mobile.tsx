@@ -38,7 +38,7 @@ function Mobile({ values }: { values: ProjectTypes }) {
           values?.screens?.map((screens, screenIndex) => {
             return (
               <li key={screens?.name}>
-                <h1 className="font-mono_normal text-white text-center text-sm p-2 font-semibold">
+                <h1 className="font-poppins-normal text-sm p-2 font-semibold">
                   {screenIndex + 1}.{screens?.name}
                 </h1>
                 <Image
@@ -46,7 +46,7 @@ function Mobile({ values }: { values: ProjectTypes }) {
                   src={screens?.image}
                   width={200}
                   height={200}
-                  className="object-contain"
+                  className="object-contain rounded-lg shadow-lg"
                 />
               </li>
             )

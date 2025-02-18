@@ -11,9 +11,8 @@ function TextBox({
   labelStyle,
   ...otherInputProps
 }: InputProps) {
-  const defaultClass =
-    "border border-stone-700 border-opacity-50 bg-inherit rounded-lg p-2 w-full text-white outline-1 outline-stone-700"
-  const defaultLableClass = "text-white font-poppins_normal py-3"
+  const defaultClass = "bg-white  rounded-lg p-2 w-full text-white"
+  const defaultLableClass = "font-poppins-normal py-3"
   return (
     <div>
       {label && <h1 className={cn(defaultLableClass, labelStyle)}>{label}</h1>}

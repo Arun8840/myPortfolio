@@ -1,10 +1,10 @@
 {
-  "primary": "#810CA8",
+  "primary": "#D2FF72",
   "secondary": "#EEF7FF",
   "background": "#ffffff",
-  "cardBg": "#35155D",
+  "cardBg": "#FFFFFF",
   "button_theme": {
-    "primary": "#810CA8",
+    "primary": "#D2FF72",
     "secondary": "#EEF7FF",
     "default": "#202020"
   },

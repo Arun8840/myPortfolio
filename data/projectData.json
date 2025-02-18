@@ -16,6 +16,17 @@
     "image": "/images/companySiteImage.png"
   },
   {
+    "id": 88,
+    "active": true,
+    "title": "Jira Clone",
+    "description": [
+      "Developed a comprehensive component library using Next.js, Hono.js, Zod, and ShadCN UI.Integrated essential components including buttons, modals, and dropdowns to ensure a cohesive UI experience.Streamlined the library for seamless integration across various sections of the Jira clone project.Privately deployed the package to facilitate team collaboration within the project.Accelerated development cycles by leveraging reusable components across different features and functionalities."
+    ],
+    "path": "https://jira-clone-two-sigma.vercel.app/",
+    "componentType": "PackageComponents",
+    "openExternal": true
+  },
+  {
     "id": 2,
     "active": true,
     "title": "Portfolio Website",
@@ -31,7 +42,7 @@
 
   {
     "id": 3,
-    "active": true,
+    "active": false,
     "title": "Expense Tracker Mobile App",
     "description": [
       "Developed a cross-platform mobile app for tracking daily expenses using React Native. Implemented a user-friendly interface with NativeWind for styling components. Utilized Zustand for efficient state management, enabling seamless handling of application state. Added features for category-based expense tracking and visual analytics using charts."
@@ -75,7 +86,7 @@
   },
   {
     "id": 5,
-    "active": true,
+    "active": false,
     "title": "Reusable Components Library",
     "description": [
       "Created a reusable component library using React and `simple-react-components` npm package.",
@@ -86,28 +97,5 @@
     ],
     "path": "/projects/Reusable_Components_Library",
     "componentType": "PackageComponents"
-  },
-  {
-    "id": 4,
-    "active": false,
-    "title": "Todo App with Drag and Drop",
-    "description": [
-      "Built a todo app with drag-and-drop functionality using `react-dnd` in React.",
-      "Implemented local storage for saving tasks and their completion status.",
-      "Created a user-friendly interface with dynamic task filtering (e.g., completed, pending).",
-      "Added features for editing, deleting, and reordering tasks with drag-and-drop.",
-      "Utilized `react-dnd` to allow users to reorder tasks by dragging them within the list."
-    ]
-  },
-  {
-    "id": 1,
-    "active": false,
-    "title": "E-Commerce Platform",
-    "description": [
-      "Developed a responsive e-commerce platform using React and Next.js.",
-      "Implemented dynamic product filters and sorting for an improved user experience.",
-      "Integrated payment gateway using Stripe API for secure transactions."
-    ],
-    "componentType": "Ecommerce"
   }
 ]

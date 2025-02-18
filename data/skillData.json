@@ -5,7 +5,16 @@
   },
   {
     "title": "Frameworks & Libraries",
-    "content": ["React", "Next.js", "GSAP (GreenSock Animation Platform)"]
+    "content": [
+      "React",
+      "React-Native",
+      "Next.js",
+      "GSAP (GreenSock Animation Platform)"
+    ]
+  },
+  {
+    "title": "Databases",
+    "content": ["MongoDB", "Hono"]
   },
   {
     "title": "Design & Tools",

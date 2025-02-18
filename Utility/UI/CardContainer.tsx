@@ -13,11 +13,11 @@ function CardContainer({
   animate = false,
   ...otherProps
 }: CardProps) {
-  const { primary, cardBg } = theme
+  const { cardBg } = theme
 
-  const baseClass = `bg-[var(--card-inactive-state-bg)] border border-transparent p-3 rounded-3xl ${
+  const baseClass = `bg-white p-5 rounded-3xl ${
     animate &&
-    "hover:bg-[var(--card-active-state-bg)] hover:border-[var(--card-border)] hover:-rotate-[.5deg] transition-all duration-200"
+    "hover:bg-[var(--card-active-state-bg)] hover:border-[var(--card-border)] hover:-rotate-[.5deg] transition-all duration-200 font-poppins-normal"
   }`
   return (
     <div
