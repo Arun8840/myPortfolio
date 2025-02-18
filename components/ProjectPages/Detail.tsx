@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react"
 import dynamic from "next/dynamic"
 import { useSearchParams } from "next/navigation"
 import React from "react"
+import { Header } from "../ui/Header"
 
 interface DynamicComponentProps {
   values?: ProjectTypes
@@ -34,26 +35,17 @@ function Detail() {
   )
 
   return (
-    <section className="min-h-screen p-3">
+    <section className="min-h-screen p-3 bg-fixed [background-image:linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_50%,#fff_60%,transparent_100%)]">
       <div className="container mx-auto p-3">
         {/* //todo header */}
         <div className="flex flex-col gap-3">
-          <ButtonUrl
-            className="size-fit"
-            href="/"
-            icon={{
-              color: "white",
-              value: <ArrowLeft size={18} />,
-            }}
-          />
-          <h1 className="text-white text-[2rem] font-mono_normal p-3 font-semibold">
-            {filteredValue?.title}
-          </h1>
+          <ButtonUrl className="size-fit" href="/">
+            <ArrowLeft size={18} />
+          </ButtonUrl>
+          <Header>{filteredValue?.title}</Header>
         </div>
         {/* //todo description */}
-        <p className="text-white font-mono_normal p-3">
-          {filteredValue?.description}
-        </p>
+        <p className="font-poppins-normal pt-3">{filteredValue?.description}</p>
 
         {/* //todo component */}
         <div>

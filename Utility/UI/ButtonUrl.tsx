@@ -21,7 +21,7 @@ function ButtonUrl({
   href,
   label,
   size = "medium",
-  variant = "default",
+  variant = "primary",
   className,
   icon,
   children,
@@ -36,7 +36,7 @@ function ButtonUrl({
 
   const buttonSize = {
     small: "text-sm p-2 size-fit",
-    medium: "p-2 size-fit",
+    medium: "p-2.5 size-fit",
     large: "p-4",
   }
   const currectSize = buttonSize[size]
@@ -45,7 +45,7 @@ function ButtonUrl({
   const isSecondary = ["secondary"]?.includes(variant ?? "")
   const baseClass = [
     currectSize,
-    "flex items-center gap-3 font-poppins_normal font-medium tracking-wide text-white rounded-full bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
+    "flex items-center gap-3 font-poppins-normal font-medium tracking-wide rounded-lg bg-[var(--variant)] hover:bg-[var(--effect)] transition-all duration-150",
     isSecondary && "text-[var(--primay-text-color)]",
   ]
     .filter(Boolean)

@@ -1,72 +1,49 @@
 "use client"
 import useStore from "@/Store/Store"
-import ButtonUrl from "@/Utility/UI/ButtonUrl"
 import CardContainer from "@/Utility/UI/CardContainer"
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { ExternalLink } from "lucide-react"
 import React from "react"
+import { Header } from "./ui/Header"
+import ButtonUrl from "@/Utility/UI/ButtonUrl"
 function Projects() {
   const projects = useStore((state) => state?.projects)
 
   return (
-    <section className="p-3 lg:p-10 flex flex-col">
-      {/* header */}
-      <h1 className="text-white container mx-auto font-mono_bold font-semibold text-[2rem] col-span-full p-2">
-        Projects
-      </h1>
-      <div className="size-full flex-1 lg:pt-10 container mx-auto grid lg:grid-cols-2 gap-3">
-        {projects?.map((items) => {
-          return (
-            <CardContainer
-              key={items?.title}
-              className={`p-4 flex gap-3 ${!items?.active ? "opacity-30" : ""}`}
-            >
-              {/* Display the image if available */}
-              {items?.image && (
-                <div className="w-[200px] h-fit rounded-lg overflow-hidden shrink-0">
-                  <Image
-                    src={items?.image}
-                    className="object-contain"
-                    width={200}
-                    height={200}
-                    alt="Project Images"
-                    style={{ objectFit: "cover" }} // Inline style to maintain center alignment
-                  />
-                </div>
-              )}
+    <section className="lg:min-h-screen p-3 md:p-5">
+      <div className="container mx-auto flex flex-col flex-1 p-3 md:p-5 gap-3">
+        <Header className="p-2">Featured Projects</Header>
+        <div className="grid md:grid-cols-2 gap-3 flex-1">
+          {projects?.map((project) => {
+            return (
+              <CardContainer
+                key={project?.id}
+                className="p-0 bg-neutral-50 backdrop-blur-lg flex  flex-col gap-2 relative"
+              >
+                <div className="flex">
+                  <Header className="text-lg p-5 place-content-center flex-1">
+                    {project?.title}
+                  </Header>
 
-              {/* Content Section */}
-              <div className="flex-1">
-                {/* Title */}
-                <h1 className="text-2xl text-white font-mono_bold font-semibold">
-                  {items?.title}
-                </h1>
-
-                {/* Description */}
-                <p className="text-white font-mono_normal pt-3 line-clamp-3">
-                  {items?.description}
-                </p>
-
-                {/* Action Button */}
-                {items?.path && (
-                  <div className="pt-3 flex justify-end">
+                  <div
+                    className="bg-white relative left-0 top-0 h-12  rounded-tr-xl rounded-bl-xl aspect-square
+       after:absolute after:top-0 after:-left-5 after:size-5 after:bg-radial-[at_0%_70%]   after:from-inherit after:to-white after:from-75% after:to-0% before:absolute before:-bottom-5 before:-right-0 before:size-5 before:bg-radial-[at_0%_70%] before:from-inherit before:to-white before:from-75% before:to-0% grid place-items-center"
+                  >
                     <ButtonUrl
-                      target={items?.openExternal ? "_blank" : "_self"}
-                      href={`${items?.path}?id=${items?.id}`}
-                      variant="primary"
-                      icon={{
-                        color: "white",
-                        value: <ArrowRight size={18} />,
-                      }}
+                      target={project?.openExternal ? "_blank" : "_self"}
+                      href={`${project?.path}?id=${project?.id}`}
+                      className="font-medium p-0"
                     >
-                      Open
+                      <ExternalLink size={18} />
                     </ButtonUrl>
                   </div>
-                )}
-              </div>
-            </CardContainer>
-          )
-        })}
+                </div>
+                <div className="p-4 pt-0">
+                  <p className="text-neutral-600">{project?.description}</p>
+                </div>
+              </CardContainer>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

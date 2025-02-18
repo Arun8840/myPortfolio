@@ -28,11 +28,11 @@ const Chips: React.FC<ChipPropTypes> = ({
   const Variants = {
     outlined:
       "border border-stone-500/50 peer-checked:border-[var(--primary-color)] peer-checked:bg-[var(--primary-outlined-checked)] peer-checked:text-[var(--primary-color)]",
-    default: "bg-stone-500/10 peer-checked:bg-[var(--primary-color)]",
+    default: "bg-white peer-checked:bg-[var(--primary-color)]",
   }
   const VariantSize = {
-    small: "text-sm p-2 size-fit",
-    medium: "p-2 size-fit",
+    small: "text-sm p-2",
+    medium: "p-2",
     large: "p-4",
   }
 
@@ -45,7 +45,7 @@ const Chips: React.FC<ChipPropTypes> = ({
 
   // Base classes for the chip
   const defaultClass = [
-    "rounded-full size-fit font-poppins_normal select-none px-4 py-2 text-white transition-colors duration-150",
+    "rounded-full font-poppins-normal select-none px-4 py-2 text-white transition-colors duration-150",
     Variants[variant],
     VariantSize[chipSize],
   ]
@@ -53,11 +53,7 @@ const Chips: React.FC<ChipPropTypes> = ({
     .join(" ")
 
   return (
-    <label
-      style={styleVariables as CSSProperties}
-      htmlFor={label ?? "chips"}
-      className="size-fit inline-block"
-    >
+    <label style={styleVariables as CSSProperties} htmlFor={label ?? "chips"}>
       <input
         {...otherChipProps}
         type={typeValue}
