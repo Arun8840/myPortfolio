@@ -1,17 +1,23 @@
 import { cn } from "@/Utility/cn"
-import React, { HTMLAttributes } from "react"
+import React, { forwardRef, HTMLAttributes } from "react"
 
-interface HeaderProps extends HTMLAttributes<HTMLHeadElement> {
+interface HeaderProps extends HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode
 }
-export const Header = ({ children, className, ...otherProps }: HeaderProps) => {
-  const baseClass =
-    "text-4xl font-poppins-normal font-semibold text-neutral-800"
-  return (
-    <>
-      <h1 {...otherProps} className={cn(baseClass, className)}>
+
+// Forward the ref properly
+export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
+  ({ children, className, ...otherProps }, ref) => {
+    const baseClass =
+      "text-4xl font-poppins-normal font-semibold text-neutral-800"
+
+    return (
+      <h1 ref={ref} {...otherProps} className={cn(baseClass, className)}>
         {children}
       </h1>
-    </>
-  )
-}
+    )
+  }
+)
+
+// Display name for better debugging
+Header.displayName = "Header"

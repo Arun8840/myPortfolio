@@ -11,7 +11,7 @@ function Contact() {
   const [message, formAction, isPending] = useActionState(sendMail, null)
 
   return (
-    <section className="min-h-screen grid place-items-center p-2 lg:p-5 bg-fixed bg-radial from-[#63e] bg-[top_right]">
+    <section className="min-h-screen grid place-items-center p-2 lg:p-5">
       <CardContainer className="w-full md:w-[80%]">
         <form action={formAction} className="p-2">
           {message}
