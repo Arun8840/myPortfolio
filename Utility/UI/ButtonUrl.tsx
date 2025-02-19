@@ -61,7 +61,7 @@ function ButtonUrl({
           "--effect": `${variant_value}95`,
         } as CSSProperties
       }
-      className={baseClass}
+      className={cn(baseClass, className)}
     >
       {icon && (
         <span

@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins_normal?.variable} from-white antialiased`}>
+      <body
+        className={`${poppins_normal?.variable} bg-black  bg-fixed bg-[radial-gradient(#373A40_0.5px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_50%,#000_80%,transparent_100%)] antialiased`}
+      >
         {children}
       </body>
     </html>
