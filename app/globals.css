@@ -5,6 +5,7 @@
   --color-foreground: var(--foreground);
   --font-poppins-normal: var(--font-poppins-normal);
   --container-xl: var(--container-xl);
+  --header-clip: polygon(0 0, 100% 100%, 0% 100%);
 }
 
 @layer base {

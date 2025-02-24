@@ -1,88 +1,52 @@
 "use client"
 import useStore from "@/Store/Store"
-import CardContainer from "@/Utility/UI/CardContainer"
-import { ExternalLink } from "lucide-react"
-import React, { useRef } from "react"
+import { ArrowRight } from "lucide-react"
+import React from "react"
 import { Header } from "./ui/Header"
-import ButtonUrl from "@/Utility/UI/ButtonUrl"
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-gsap.registerPlugin(useGSAP, ScrollTrigger)
+import Image from "next/image"
+import Button from "@/Utility/UI/Button"
+import Link from "next/link"
 function Projects() {
   const projects = useStore((state) => state?.projects)
 
-  const projectContainer = useRef<HTMLDivElement>(null)
-
-  useGSAP(
-    () => {
-      if (projectContainer.current) {
-        gsap.fromTo(
-          projectContainer.current.children,
-          {
-            opacity: 0,
-            y: 100,
-          },
-          {
-            yoyo: true,
-            y: 0,
-            opacity: 1,
-            stagger: 0.3,
-            duration: 0.7,
-            scrollTrigger: {
-              trigger: projectContainer.current,
-              start: "top 80%",
-              end: "bottom 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        )
-      }
-    },
-    { scope: projectContainer }
-  )
-
   return (
-    <section className="lg:min-h-screen p-3">
-      <div className="container mx-auto flex flex-col flex-1 p-3 md:p-5 gap-5">
-        <Header className="p-2 text-white text-center">
-          Featured Projects
-        </Header>
-        <div
-          ref={projectContainer}
-          className="grid md:grid-cols-2 gap-3 flex-1"
-        >
-          {projects?.map((project) => {
-            return (
-              <CardContainer
-                key={project?.id}
-                className={`p-0 bg-white backdrop-blur-lg flex  flex-col gap-2 relative`}
-              >
-                <div className="flex">
-                  <Header className="text-lg p-5 place-content-center flex-1">
-                    {project?.title}
-                  </Header>
-
-                  <div
-                    className="bg-white relative left-0 top-0 h-12  rounded-tr-xl rounded-bl-xl aspect-square
-       after:absolute after:top-0 after:-left-5 after:size-5 after:bg-radial-[at_0%_70%]   after:from-inherit after:to-white after:from-75% after:to-0% before:absolute before:-bottom-5 before:-right-0 before:size-5 before:bg-radial-[at_0%_70%] before:from-inherit before:to-white before:from-75% before:to-0% grid place-items-center"
-                  >
-                    <ButtonUrl
-                      target={project?.openExternal ? "_blank" : "_self"}
-                      href={`${project?.path}?id=${project?.id}`}
-                      className="font-medium"
-                    >
-                      <ExternalLink size={18} />
-                    </ButtonUrl>
-                  </div>
+    <section className="container mx-auto p-5 flex flex-col gap-5">
+      <Header className="text-white px-2 text-5xl">Fearuted Projects</Header>
+      <div className="flex-1 flex flex-col gap-5 justify-between divide-y divide-neutral-800 relative">
+        {projects?.map((project, index) => {
+          return (
+            <div key={project?.id} className="flex-1 grid md:grid-cols-2 pb-2">
+              <Header className="text-white font-medium text-2xl p-3">
+                {index + 1} .{project?.title}
+              </Header>
+              <div>
+                <div className="w-full h-72 rounded-4xl overflow-hidden">
+                  <Image
+                    src={project?.image ?? "/Moon.png"}
+                    alt={`${project?.id}-Project Image`}
+                    width={500}
+                    height={500}
+                    className="size-full object-cover"
+                  />
                 </div>
-                <div className="p-4 pt-0">
-                  <p className="text-neutral-600">{project?.description}</p>
-                </div>
-              </CardContainer>
-            )
-          })}
-        </div>
+                <p className="text-neutral-300 p-2  line-clamp-4 font-poppins-normal leading-loose">
+                  {project?.description}
+                </p>
+                <Link
+                  target={project?.openExternal ? "_blank" : "_self"}
+                  href={project?.path ?? "#"}
+                >
+                  <Button className="rounded-full group/button">
+                    Open
+                    <span className="bg-black group-hover/button:-rotate-[60deg] transition-transform duration-150 text-white size-10 rounded-full grid place-items-center">
+                      <ArrowRight />
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </section>
   )
