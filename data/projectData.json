@@ -47,7 +47,7 @@
     "description": [
       "Developed a cross-platform mobile app for tracking daily expenses using React Native. Implemented a user-friendly interface with NativeWind for styling components. Utilized Zustand for efficient state management, enabling seamless handling of application state. Added features for category-based expense tracking and visual analytics using charts."
     ],
-    "path": "/projects/Mobile",
+    "path": "/projects/Mobile?id=3",
     "componentType": "Mobile",
     "screens": [
       {
@@ -95,7 +95,7 @@
       "Published the package privately for use in team projects.",
       "Improved development speed by reusing pre-built components across applications."
     ],
-    "path": "/projects/Reusable_Components_Library",
+    "path": "/projects/Reusable_Components_Library?id=5",
     "componentType": "PackageComponents"
   }
 ]
