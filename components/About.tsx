@@ -1,31 +1,11 @@
 "use client"
 import CardContainer from "@/Utility/UI/CardContainer"
-import React, { useRef } from "react"
+import React from "react"
 import { Header } from "./ui/Header"
 import { Plus } from "lucide-react"
-import gsap from "gsap"
-import { Draggable } from "gsap/Draggable"
-import { useGSAP } from "@gsap/react"
-import InertiaPlugin from "gsap-trial/InertiaPlugin"
 import Image from "next/image"
 
-gsap.registerPlugin(Draggable, useGSAP, InertiaPlugin)
 function About() {
-  const cardContainer = useRef<HTMLDivElement>(null)
-  const skillContainer = useRef<HTMLUListElement>(null)
-
-  useGSAP(
-    () => {
-      if (skillContainer?.current?.children) {
-        Draggable.create(skillContainer?.current?.children, {
-          bounds: cardContainer.current,
-          inertia: true,
-        })
-      }
-    },
-    { scope: skillContainer }
-  )
-
   return (
     <section className="p-3  min-h-screen container mx-auto grid place-items-center">
       <div className="grid md:grid-cols-6 md:grid-rows-4 md:p-10 gap-3 md:gap-3 bg-[url(/Darkshell.jpeg)] bg-center bg-cover rounded-4xl">
@@ -64,9 +44,9 @@ function About() {
         </CardContainer>
 
         <CardContainer className="md:row-span-4 md:col-span-2 size-full bg-white/10 backdrop-blur-sm border border-neutral-700">
-          <div ref={cardContainer} className="flex flex-col size-full">
+          <div className="flex flex-col size-full">
             <Header className="text-white flex-1 text-5xl">Skills</Header>
-            <ul ref={skillContainer} className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2">
               {skills?.map((skill, skillIndex) => {
                 return (
                   <li
@@ -97,9 +77,9 @@ function About() {
             <p className="font-poppins-normal text-white">
               Throughout my journey, I&apos;ve mastered key frontend tools like
               React, Next.js, Tailwind CSS, and Figma to build intuitive
-              interfaces. I’m also proficient in Spline for 3D design and GSAP
-              for creating smooth animations, ensuring that every project I work
-              on is engaging and visually captivating.
+              interfaces. I&apos;m also proficient in Spline for 3D design and
+              GSAP for creating smooth animations, ensuring that every project I
+              work on is engaging and visually captivating.
             </p>
           </div>
         </CardContainer>
