@@ -8,7 +8,7 @@ const GlowingCard: React.FC<CardPros> = ({
   ...otherProps
 }) => {
   const baseClass =
-    "min-w-[300px] rounded-xl overflow-hidden mx-auto relative p-1 grid ring ring-inset ring-neutral-600/50"
+    "min-w-[300px] rounded-xl overflow-hidden mx-auto relative p-0.5 grid ring ring-inset ring-neutral-600/50"
 
   return (
     <div {...otherProps} className={cn(baseClass, className)}>

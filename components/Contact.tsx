@@ -5,64 +5,75 @@ import TextBox from "@/Utility/UI/Input/TextBox"
 import { Plus, Sparkles } from "lucide-react"
 import React, { useActionState } from "react"
 import { Header } from "./ui/Header"
-import CardContainer from "@/Utility/UI/CardContainer"
+import { CardContent, Glowing, GlowingCard } from "@/Utility/UI/Glowing-card"
 
 function Contact() {
   const [message, formAction, isPending] = useActionState(sendMail, null)
 
   return (
     <section className="min-h-screen grid place-items-center p-2 lg:p-5">
-      <CardContainer className="w-full md:w-[80%]">
-        <form action={formAction} className="p-2">
-          {message}
-          <div>
-            <Header>Get In Touch</Header>
-            <p className="font-poppins-normal pl-0 p-3 text-justify">
-              Have a project in mind or want to collaborate? I&rsquo;d love to
-              hear from you&#33; Fill out the contact form below, and I&rsquo;ll
-              get back to you as soon as possible&#46; Let&rsquo;s create
-              something amazing together&#33;
-            </p>
-          </div>
+      <GlowingCard className="md:w-6xl p-0.5">
+        <Glowing className="w-full h-full -top-1/2 from-yellow-400 to-yellow-500 via-white" />
+        <CardContent className="p-5">
+          <Header className="text-white text-center text-6xl">
+            Get In Touch
+          </Header>
+          <p className="font-poppins-normal text-white pl-0 p-3 text-center w-1/2 mx-auto">
+            Have a project in mind or want to collaborate? I&rsquo;d love to
+            hear from you&#33; Fill out the contact form below, and I&rsquo;ll
+            get back to you as soon as possible&#46; Let&rsquo;s create
+            something amazing together&#33;
+          </p>
+          <form action={formAction}>
+            {message}
 
-          <div className="flex flex-col gap-3 flex-1 py-2">
-            <div className="grid md:grid-cols-2 gap-2">
-              <CardContainer>
-                <Header className="text-lg font-medium">Email</Header>
-                <p>arunprakashrani@gmail.com</p>
-              </CardContainer>
-              <CardContainer>
-                <Header className="text-lg font-medium">Phone</Header>
-                <p className="flex items-center gap-2">
-                  <Plus size={18} />
-                  91 &nbsp;6381941148
-                </p>
-              </CardContainer>
-              <TextBox className="border" required name="name" label="Name" />
+            <div className="flex flex-col gap-3 flex-1 py-2 md:w-4xl mx-auto">
+              <div className="">
+                <TextBox
+                  labelStyle="text-white"
+                  className="bg-white/10 p-3"
+                  required
+                  name="name"
+                  label="Name"
+                />
 
-              <TextBox className="border" required name="email" label="Email" />
+                <TextBox
+                  labelStyle="text-white"
+                  className="bg-white/10 p-3"
+                  required
+                  name="email"
+                  label="Email"
+                />
+              </div>
+              <label htmlFor="message" className="block font-poppins-normal">
+                Message
+              </label>
+              <textarea
+                required
+                name="message"
+                className="bg-white/10 min-h-30 rounded-xl text-white p-2"
+              />
+              <div className="pt-3 flex justify-end gap-5">
+                <div className="text-white flex-1">
+                  <p className="pb-2">arunprakashrani@gmail.com</p>
+                  <p className="flex items-center">
+                    <Plus size={18} />
+                    91 &nbsp;6381941148
+                  </p>
+                </div>
+                <Button
+                  disabled={isPending}
+                  size="large"
+                  className="rounded-full"
+                >
+                  Send your Message
+                  <Sparkles size={18} />
+                </Button>
+              </div>
             </div>
-            <label htmlFor="message" className="block font-poppins-normal">
-              Message
-            </label>
-            <textarea
-              required
-              name="message"
-              className="block p-3 bg-white border rounded-lg w-full"
-            />
-            <div className="pt-3 flex justify-end">
-              <Button
-                disabled={isPending}
-                size="large"
-                className="rounded-full"
-              >
-                Send your Message
-                <Sparkles size={18} />
-              </Button>
-            </div>
-          </div>
-        </form>
-      </CardContainer>
+          </form>
+        </CardContent>
+      </GlowingCard>
     </section>
   )
 }

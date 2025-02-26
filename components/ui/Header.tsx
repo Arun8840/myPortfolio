@@ -8,8 +8,7 @@ interface HeaderProps extends HTMLAttributes<HTMLHeadingElement> {
 // Forward the ref properly
 export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
   ({ children, className, ...otherProps }, ref) => {
-    const baseClass =
-      "text-4xl font-poppins-normal font-semibold text-neutral-800"
+    const baseClass = "text-4xl font-poppins-normal text-neutral-800"
 
     return (
       <h1 ref={ref} {...otherProps} className={cn(baseClass, className)}>
