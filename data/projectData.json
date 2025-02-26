@@ -13,7 +13,8 @@
     ],
     "path": "https://zetta-stackpvt.vercel.app/?vercelToolbarCode=TBtdT1EE3gD_D0n",
     "openExternal": true,
-    "image": "/images/companySiteImage.png"
+    "image": "/images/companySiteImage.png",
+    "tech": ["NEXTJS", "TAILWINDCSS", "GSAP"]
   },
   {
     "id": 88,
@@ -24,7 +25,15 @@
     ],
     "path": "https://jira-clone-two-sigma.vercel.app/",
     "componentType": "PackageComponents",
-    "openExternal": true
+    "openExternal": true,
+    "tech": [
+      "NEXTJS",
+      "TAILWINDCSS",
+      "SHADCNUI",
+      "HONO",
+      "APPWRITE",
+      "TYPESCRIPT"
+    ]
   },
   {
     "id": 2,
@@ -37,7 +46,8 @@
     ],
     "image": "/images/PorfolioImage.png",
     "path": "https://my-portfolio-mu-one-77.vercel.app/",
-    "openExternal": true
+    "openExternal": true,
+    "tech": ["NEXTJS", "TAILWINDCSS", "GSAP"]
   },
 
   {
@@ -82,7 +92,8 @@
         "name": "Profile Screen",
         "image": "/images/ProfileScreen.png"
       }
-    ]
+    ],
+    "tech": ["TAILWINDCSS", "REACTNATIVE"]
   },
   {
     "id": 5,
@@ -96,6 +107,7 @@
       "Improved development speed by reusing pre-built components across applications."
     ],
     "path": "/projects/Reusable_Components_Library?id=5",
-    "componentType": "PackageComponents"
+    "componentType": "PackageComponents",
+    "tech": ["NEXTJS", "TAILWINDCSS", "TYPESCRIPT", "GSAP"]
   }
 ]

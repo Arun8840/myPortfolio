@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { Poppins } from "next/font/google"
+import { Bricolage_Grotesque } from "next/font/google"
 
-const poppins_normal = Poppins({
+const poppins_normal = Bricolage_Grotesque({
   weight: "400",
   subsets: ["latin"],
   display: "block",

@@ -50,7 +50,7 @@ function About() {
           </CardContainer>
 
           <GlowingCard className="md:row-span-4 md:col-span-2 size-full ring-0">
-            <Glowing className="size-1/2 -top-10 -right-0" />
+            <Glowing className="size-1/2 -top-10 -right-0 from-lime-300 via-lime-300 to-lime-200" />
             <CardContent className="flex flex-col">
               <Header className="text-white flex-1 text-5xl">Skills</Header>
               <ul className="flex flex-wrap gap-2">
@@ -69,7 +69,7 @@ function About() {
           </GlowingCard>
 
           <GlowingCard className="md:col-span-2 size-full ring-0">
-            <Glowing className="size-52 -top-10 -right-10 bg-gradient-to-br from-indigo-300 via-indigo-300 to-indigo-200" />
+            <Glowing className="size-52 -top-10 -right-10 bg-gradient-to-br from-purple-300 via-purple-300 to-purple-200" />
             <CardContent className="flex flex-col gap-4">
               <Header className="text-xl text-white">My Approch</Header>
               <p className="font-poppins-normal text-neutral-200">
