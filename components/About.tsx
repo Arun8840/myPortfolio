@@ -4,87 +4,99 @@ import React from "react"
 import { Header } from "./ui/Header"
 import { Plus } from "lucide-react"
 import Image from "next/image"
+import { CardContent, GlowingCard, Glowing } from "@/Utility/UI/Glowing-card"
 
 function About() {
   return (
-    <section className="p-3  min-h-screen container mx-auto grid place-items-center">
-      <div className="grid md:grid-cols-6 md:grid-rows-4 md:p-10 gap-3 md:gap-3 bg-[url(/Darkshell.jpeg)] bg-center bg-cover rounded-4xl">
-        <CardContainer className="bg-white/10 backdrop-blur-sm  flex flex-col justify-between gap-2 md:col-span-2 md:row-span-4 relative border border-neutral-700">
-          <div className="flex-1 grid place-items-center">
-            <Header className="flex items-center gap-2 text-8xl text-white">
-              3 <Plus size={30} />
-            </Header>
+    <>
+      <section className="p-3  min-h-screen container mx-auto grid place-items-center">
+        <div className="grid md:grid-cols-6 md:grid-rows-4 md:p-10 p-1 gap-3 md:gap-3 bg-[url(/Darkshell.jpeg)] bg-center bg-cover rounded-xl">
+          <GlowingCard className="md:col-span-2 md:row-span-4 size-full ring-0">
+            <Glowing className="size-80 -left-14 -top-20" />
+            <CardContent className="flex flex-col justify-center items-center gap-2">
+              <Header className="flex items-center gap-2 text-8xl text-white">
+                3 <Plus size={30} />
+              </Header>
 
-            {/* //* SPARKLE */}
-          </div>
-          <p className="font-poppins-normal text-white font-medium">
-            Years of experience
-          </p>
-        </CardContainer>
+              <p className="font-poppins-normal text-white font-medium">
+                Years of experience
+              </p>
+            </CardContent>
+          </GlowingCard>
 
-        <CardContainer className="bg-white/10 backdrop-blur-sm md:col-span-4 md:row-span-2 flex flex-col justify-between gap-2 border border-neutral-700">
-          <Header className="text-xl text-white">About</Header>
+          <GlowingCard className="md:col-span-4 md:row-span-2 size-full ring-0">
+            <Glowing className="size-96 -left-20 top-10 bg-radial from-indigo-100 via-indigo-400 to-indigo-200" />
+            <CardContent className="flex flex-col justify-center gap-4">
+              <Header className="text-xl text-white">About</Header>
 
-          <p className="font-poppins-normal text-white">
-            A frontend developer with3 yearsof professional experience at Zetta
-            Stack Systems Pvt. Ltd. I&apos;m passionate about creating
-            responsive, interactive, and user-friendly web applications.
-          </p>
-        </CardContainer>
-        <CardContainer className="bg-white/10 p-0 overflow-hidden backdrop-blur-sm md:col-span-2 md:row-span-3 border border-neutral-700 group/profileImage">
-          <div className="h-[400px]">
-            <Image
-              src={"/Banner.png"}
-              alt="Profile"
-              width={400}
-              height={400}
-              className="size-full object-cover grayscale-100 group-hover/profileImage:grayscale-0 transition-all duration-150"
-            />
-          </div>
-        </CardContainer>
+              <p className="font-poppins-normal text-neutral-200">
+                A frontend developer with3 yearsof professional experience at
+                Zetta Stack Systems Pvt. Ltd. I&apos;m passionate about creating
+                responsive, interactive, and user-friendly web applications.
+              </p>
+            </CardContent>
+          </GlowingCard>
 
-        <CardContainer className="md:row-span-4 md:col-span-2 size-full bg-white/10 backdrop-blur-sm border border-neutral-700">
-          <div className="flex flex-col size-full">
-            <Header className="text-white flex-1 text-5xl">Skills</Header>
-            <ul className="flex flex-wrap gap-2">
-              {skills?.map((skill, skillIndex) => {
-                return (
-                  <li
-                    key={skillIndex + 1}
-                    className={`${skill?.bgColor} text-white font-poppins-normal rounded-full p-2 text-center`}
-                  >
-                    {skill?.title}
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </CardContainer>
+          <CardContainer className="bg-white/10 p-0 overflow-hidden backdrop-blur-sm md:col-span-2 md:row-span-3 border border-neutral-700 group/profileImage">
+            <div className="h-[400px]">
+              <Image
+                src={"/Banner.png"}
+                alt="Profile"
+                width={400}
+                height={400}
+                className="size-full object-cover grayscale-100 group-hover/profileImage:grayscale-0 transition-all duration-150"
+              />
+            </div>
+          </CardContainer>
 
-        <CardContainer className="bg-white/10 backdrop-blur-sm  md:col-span-2 flex flex-col justify-between gap-2 border border-neutral-700">
-          <Header className="text-xl text-white">My Approch</Header>
-          <p className="font-poppins-normal text-white">
-            I believe in crafting clean, maintainable code that blends
-            functionality with beautiful design. With a strong focus on
-            collaboration, I enjoy working with designers and developers alike
-            to create seamless user experiences.
-          </p>
-        </CardContainer>
+          <GlowingCard className="md:row-span-4 md:col-span-2 size-full ring-0">
+            <Glowing className="size-1/2 -top-10 -right-0" />
+            <CardContent className="flex flex-col">
+              <Header className="text-white flex-1 text-5xl">Skills</Header>
+              <ul className="flex flex-wrap gap-2">
+                {skills?.map((skill, skillIndex) => {
+                  return (
+                    <li
+                      key={skillIndex + 1}
+                      className={`bg-white/30 backdrop-blur-sm text-white font-poppins-normal rounded-full p-2 text-center`}
+                    >
+                      {skill?.title}
+                    </li>
+                  )
+                })}
+              </ul>
+            </CardContent>
+          </GlowingCard>
 
-        <CardContainer className="bg-white/10 backdrop-blur-sm md:col-span-4 flex flex-col justify-between gap-2 border border-neutral-700">
-          <div className="place-content-end flex flex-col gap-2">
-            <Header className="text-xl text-white">My Journey</Header>
-            <p className="font-poppins-normal text-white">
-              Throughout my journey, I&apos;ve mastered key frontend tools like
-              React, Next.js, Tailwind CSS, and Figma to build intuitive
-              interfaces. I&apos;m also proficient in Spline for 3D design and
-              GSAP for creating smooth animations, ensuring that every project I
-              work on is engaging and visually captivating.
-            </p>
-          </div>
-        </CardContainer>
-      </div>
-    </section>
+          <GlowingCard className="md:col-span-2 size-full ring-0">
+            <Glowing className="size-52 -top-10 -right-10 bg-gradient-to-br from-indigo-300 via-indigo-300 to-indigo-200" />
+            <CardContent className="flex flex-col gap-4">
+              <Header className="text-xl text-white">My Approch</Header>
+              <p className="font-poppins-normal text-neutral-200">
+                I believe in crafting clean, maintainable code that blends
+                functionality with beautiful design. With a strong focus on
+                collaboration, I enjoy working with designers and developers
+                alike to create seamless user experiences.
+              </p>
+            </CardContent>
+          </GlowingCard>
+
+          <GlowingCard className="md:col-span-4 size-full ring-0">
+            <Glowing className="size-52 top-10 -left-10 bg-gradient-to-br from-neutral-300 via-neutral-500 to-neutral-200" />
+            <CardContent className="flex flex-col gap-4">
+              <Header className="text-xl text-white">My Journey</Header>
+              <p className="font-poppins-normal text-neutral-200">
+                Throughout my journey, I&apos;ve mastered key frontend tools
+                like React, Next.js, Tailwind CSS, and Figma to build intuitive
+                interfaces. I&apos;m also proficient in Spline for 3D design and
+                GSAP for creating smooth animations, ensuring that every project
+                I work on is engaging and visually captivating.
+              </p>
+            </CardContent>
+          </GlowingCard>
+        </div>
+      </section>
+    </>
   )
 }
 
